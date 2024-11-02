@@ -1,4 +1,4 @@
-namespace Ucu.Poo.DiscordBot.Domain;
+/*namespace Ucu.Poo.DiscordBot.Domain;
 
 /// <summary>
 /// Esta clase recibe las acciones y devuelve los resultados que permiten
@@ -185,3 +185,4 @@ public class Facade
         }
     }
 }
+*/

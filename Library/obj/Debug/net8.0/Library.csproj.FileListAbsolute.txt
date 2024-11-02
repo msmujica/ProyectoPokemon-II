@@ -21,3 +21,15 @@ C:\Users\Estudiante UCU\Desktop\Nueva carpeta\src\Library\obj\Debug\net8.0\Libra
 C:\Users\Estudiante UCU\Desktop\Nueva carpeta\src\Library\obj\Debug\net8.0\refint\Library.dll
 C:\Users\Estudiante UCU\Desktop\Nueva carpeta\src\Library\obj\Debug\net8.0\Library.pdb
 C:\Users\Estudiante UCU\Desktop\Nueva carpeta\src\Library\obj\Debug\net8.0\ref\Library.dll
+C:\Users\Estudiante UCU\Desktop\ProyectoPokemon-II\Library\obj\Debug\net8.0\Library.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Estudiante UCU\Desktop\ProyectoPokemon-II\Library\obj\Debug\net8.0\Library.AssemblyInfoInputs.cache
+C:\Users\Estudiante UCU\Desktop\ProyectoPokemon-II\Library\obj\Debug\net8.0\Library.AssemblyInfo.cs
+C:\Users\Estudiante UCU\Desktop\ProyectoPokemon-II\Library\obj\Debug\net8.0\Library.csproj.CoreCompileInputs.cache
+C:\Users\Estudiante UCU\Desktop\ProyectoPokemon-II\Library\obj\Debug\net8.0\Library.sourcelink.json
+C:\Users\Estudiante UCU\Desktop\ProyectoPokemon-II\Library\obj\Debug\net8.0\Library.dll
+C:\Users\Estudiante UCU\Desktop\ProyectoPokemon-II\Library\obj\Debug\net8.0\refint\Library.dll
+C:\Users\Estudiante UCU\Desktop\ProyectoPokemon-II\Library\obj\Debug\net8.0\Library.pdb
+C:\Users\Estudiante UCU\Desktop\ProyectoPokemon-II\Library\bin\Debug\net8.0\Library.deps.json
+C:\Users\Estudiante UCU\Desktop\ProyectoPokemon-II\Library\bin\Debug\net8.0\Library.dll
+C:\Users\Estudiante UCU\Desktop\ProyectoPokemon-II\Library\bin\Debug\net8.0\Library.pdb
+C:\Users\Estudiante UCU\Desktop\ProyectoPokemon-II\Library\obj\Debug\net8.0\ref\Library.dll

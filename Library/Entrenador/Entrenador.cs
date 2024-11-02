@@ -36,39 +36,13 @@ public class Entrenador
         this.Activo = null;
     }
 
-    public void elegirEquipo()
+    public void elegirEquipo(int numero)
     {
-        while (this.Equipo.Count < 2)
-        {
-            Pokedex.mostrarPokedex();
-            Console.WriteLine("Selecciona el numero del pokemon que deseas agregar a tu equipo");
-            int numero = int.Parse(Console.ReadLine());
-
             Pokemon seleccion = Pokedex.obtenerPokemonPorIndice(numero);
 
-            if (seleccion != null)
-            {
-                if (!this.Equipo.Contains(seleccion))
-                {
-                    this.Equipo.Add(seleccion);
-                    Console.WriteLine($"{seleccion.Nombre} ha sido añadido a tu equipo.");
-                }
-                else
-                {
-                    Console.WriteLine("El pokemon ya esta en tu equipo");
-                }
-            }
+            this.Equipo.Add(seleccion);
+            this.Activo = seleccion;
 
-            if (this.Equipo.Count == 1)
-            {
-                this.Activo = seleccion;
-            }
-
-            if (this.Equipo.Count == 6)
-            {
-                Console.WriteLine("Ya tienes 6 pokemones en tu equipo");
-            }
-        }
     }
 
     public void cambiarActivo(int indexPokemonList)
