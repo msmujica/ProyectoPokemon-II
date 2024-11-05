@@ -2,14 +2,14 @@ using System;
 
 namespace Library;
 
-public class EfectoParalizar : Efecto
+public class EfectoParalizar
 {
   
-    public override void IniciarEfecto(Pokemon pokemon)
+    public static void IniciarEfecto(Pokemon pokemon)
     {
     }
 
-    public override bool ProcesarEfecto(Pokemon pokemon)
+    public static bool ProcesarEfecto(Pokemon pokemon)
     {
         return true;
     }

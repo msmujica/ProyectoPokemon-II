@@ -2,16 +2,16 @@ using System;
 
 namespace Library;
 
-public class EfectoEnvenenar : Efecto
+public static class EfectoEnvenenar
 {
-    private double porcentajeDaño = 0.05; // 5%
+    private static double porcentajeDaño = 0.05; // 5%
 
-    public override void IniciarEfecto(Pokemon pokemon)
+    public static void IniciarEfecto(Pokemon pokemon)
     {
         Console.WriteLine($"{pokemon.Nombre} ha sido envenenado.");
     }
 
-    public override bool ProcesarEfecto(Pokemon pokemon)
+    public static bool ProcesarEfecto(Pokemon pokemon)
     {
         int daño = (int)(pokemon.Vida * porcentajeDaño);
         pokemon.Vida -= daño;

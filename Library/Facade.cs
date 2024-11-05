@@ -1,4 +1,6 @@
-/*namespace Ucu.Poo.DiscordBot.Domain;
+using Library;
+
+namespace Ucu.Poo.DiscordBot.Domain;
 
 /// <summary>
 /// Esta clase recibe las acciones y devuelve los resultados que permiten
@@ -90,9 +92,9 @@ public class Facade
         }
 
         string result = "Esperan: ";
-        foreach (Trainer trainer in this.WaitingList.GetAllWaiting())
+        foreach (Entrenador trainer in this.WaitingList.GetAllWaiting())
         {
-            result = result + trainer.DisplayName + "; ";
+            result = result + trainer.Nombre + "; ";
         }
         
         return result;
@@ -105,7 +107,7 @@ public class Facade
     /// <returns>Un mensaje con el resultado.</returns>
     public string TrainerIsWaiting(string displayName)
     {
-        Trainer? trainer = this.WaitingList.FindTrainerByDisplayName(displayName);
+        Entrenador? trainer = this.WaitingList.FindTrainerByDisplayName(displayName);
         if (trainer == null)
         {
             return $"{displayName} no está esperando";
@@ -120,11 +122,23 @@ public class Facade
         // Aunque playerDisplayName y opponentDisplayName no estén en la lista
         // esperando para jugar los removemos igual para evitar preguntar si
         // están para luego removerlos.
+        Entrenador? player = this.WaitingList.FindTrainerByDisplayName(playerDisplayName);
+        Entrenador? opponent = this.WaitingList.FindTrainerByDisplayName(opponentDisplayName);
+
+        if (player == null || opponent == null)
+        {
+            return $"{(player == null ? playerDisplayName : opponentDisplayName)} no está en la lista de espera";
+        }
+
+        // Remover jugadores de la lista de espera
         this.WaitingList.RemoveTrainer(playerDisplayName);
         this.WaitingList.RemoveTrainer(opponentDisplayName);
-        
-        BattlesList.AddBattle(playerDisplayName, opponentDisplayName);
-        return $"Comienza {playerDisplayName} vs {opponentDisplayName}";
+
+        // Crear batalla con objetos Entrenador
+        Battle battle = new Battle(player, opponent);
+        this.BattlesList.AddBattle(battle);
+
+        return $"Comienza {player.Nombre} vs {opponent.Nombre}";
     }
 
     /// <summary>
@@ -185,4 +199,3 @@ public class Facade
         }
     }
 }
-*/
