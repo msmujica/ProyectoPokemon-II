@@ -1,3 +1,4 @@
+using System;
 using Library;
 using Library.Items;
 
@@ -38,15 +39,41 @@ public class Battle
         this.Player1 = player1;
         this.Player2 = player2;
         this.TurnoActual = player1;
+        player1.SeteodeItems();
+        player2.SeteodeItems();
     }
 
-    public void atacar(int value)
+    public void Atacar()
     {
         
     }
 
     public void UsarItem()
     {
+        int opcionItem = 0;
+        bool esValidaItem = false;
+        
+        Console.WriteLine($"Elige que tipo de item quieres usar:" +
+                          $"Elejir 1 para Super Pocion: {this.TurnoActual.ContadorSuperPocion} usos restantes" +
+                          $"Elejir 2 para Revivir: {this.TurnoActual.ContadorRevivir} usos restantes" +
+                          $"Elejir 3 para Cura Total: {this.TurnoActual.ContadorCuraTotal} usos restantes");
+        esValidaItem = int.TryParse(Console.ReadLine(), out opcionItem);
+        
+        switch (opcionItem)
+        {
+            case 1:
+                Console.WriteLine("Has elegido la opción 1.");
+                // Agrega lo que quieras hacer si elige 1
+                break;
+            case 2:
+                Console.WriteLine("Has elegido la opción 2.");
+                // Agrega lo que quieras hacer si elige 2
+                break;
+            case 3:
+                Console.WriteLine("Has elegido la opción 3.");
+                // Agrega lo que quieras hacer si elige 3
+                break;
+        }
         
     }
 
