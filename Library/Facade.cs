@@ -1,4 +1,7 @@
-/*namespace Ucu.Poo.DiscordBot.Domain;
+using System;
+using Library;
+
+namespace Ucu.Poo.DiscordBot.Domain;
 
 /// <summary>
 /// Esta clase recibe las acciones y devuelve los resultados que permiten
@@ -90,9 +93,9 @@ public class Facade
         }
 
         string result = "Esperan: ";
-        foreach (Trainer trainer in this.WaitingList.GetAllWaiting())
+        foreach (Entrenador trainer in this.WaitingList.GetAllWaiting())
         {
-            result = result + trainer.DisplayName + "; ";
+            result = result + trainer.Nombre + "; ";
         }
         
         return result;
@@ -105,7 +108,7 @@ public class Facade
     /// <returns>Un mensaje con el resultado.</returns>
     public string TrainerIsWaiting(string displayName)
     {
-        Trainer? trainer = this.WaitingList.FindTrainerByDisplayName(displayName);
+        Entrenador? trainer = this.WaitingList.FindTrainerByDisplayName(displayName);
         if (trainer == null)
         {
             return $"{displayName} no está esperando";
@@ -120,11 +123,31 @@ public class Facade
         // Aunque playerDisplayName y opponentDisplayName no estén en la lista
         // esperando para jugar los removemos igual para evitar preguntar si
         // están para luego removerlos.
+        Entrenador? player = this.WaitingList.FindTrainerByDisplayName(playerDisplayName);
+        Entrenador? opponent = this.WaitingList.FindTrainerByDisplayName(opponentDisplayName);
+
+        if (player == null || opponent == null)
+        {
+            return $"{(player == null ? playerDisplayName : opponentDisplayName)} no está en la lista de espera";
+        }
+
+        // Remover jugadores de la lista de espera
         this.WaitingList.RemoveTrainer(playerDisplayName);
         this.WaitingList.RemoveTrainer(opponentDisplayName);
         
-        BattlesList.AddBattle(playerDisplayName, opponentDisplayName);
-        return $"Comienza {playerDisplayName} vs {opponentDisplayName}";
+        int turnoRandom = new Random().Next(1, 2);
+        
+        switch (turnoRandom)
+        {
+            case 1:
+                this.BattlesList.AddBattle(player, opponent);
+                break;
+            case 2:
+                this.BattlesList.AddBattle(opponent, player);
+                break;
+        }
+
+        return $"Comienza {player.Nombre} vs {opponent.Nombre}";
     }
 
     /// <summary>
@@ -137,7 +160,7 @@ public class Facade
     {
         // El símbolo ? luego de Trainer indica que la variable opponent puede
         // referenciar una instancia de Trainer o ser null.
-        Trainer? opponent;
+        Entrenador? opponent;
         
         if (!OpponentProvided() && !SomebodyIsWaiting())
         {
@@ -152,7 +175,7 @@ public class Facade
             // variable no es null. Estamos seguros porque SomebodyIsWaiting
             // retorna true si y solo si hay usuarios esperando y en tal caso
             // GetAnyoneWaiting nunca retorna null.
-            return this.CreateBattle(playerDisplayName, opponent!.DisplayName);
+            return this.CreateBattle(playerDisplayName, opponentDisplayName);
         }
 
         // El símbolo ! luego de opponentDisplayName indica que sabemos que esa
@@ -165,7 +188,7 @@ public class Facade
             return $"{opponentDisplayName} no está esperando";
         }
         
-        return this.CreateBattle(playerDisplayName, opponent!.DisplayName);
+        return this.CreateBattle(playerDisplayName, opponentDisplayName);
         
         // Funciones locales a continuación para mejorar la legibilidad
 
@@ -185,4 +208,3 @@ public class Facade
         }
     }
 }
-*/
