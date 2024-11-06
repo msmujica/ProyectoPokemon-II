@@ -28,12 +28,18 @@ public class Entrenador
         get { return activo; }
         set { activo = value; }
     }
+    public int ContadorSuperPocion { get; set; }
+    public int ContadorRevivir { get; set; }
+    public int ContadorCuraTotal { get; set; }
+    private GestorDeItems gestorDeItems;
+
 
     public Entrenador(string nombre)
     {
         this.Nombre = nombre;
         this.Equipo = new List<Pokemon>();
         this.Activo = null;
+        gestorDeItems = new GestorDeItems(); // Inicialización del gestor de ítems
     }
 
     public void elegirEquipo(int numero)
@@ -42,9 +48,7 @@ public class Entrenador
 
             this.Equipo.Add(seleccion);
             this.Activo = seleccion;
-
     }
-
     public void cambiarActivo(int indexPokemonList)
     {
         if (indexPokemonList >= 0 && indexPokemonList < this.Equipo.Count)
@@ -57,20 +61,31 @@ public class Entrenador
         }
     }
 
-    public void UsarItem(IItem item, Pokemon pokemon)
-    {if (item.Contador > 0)
-        {
-            if ((item is ItemRevivir && pokemon.EstaDerrotado) || (!(item is ItemRevivir) && !pokemon.EstaDerrotado))
-            {
-                item.Usar(pokemon);
-            }
-        }
-    }
-
     public void elegirAtaque(int indexAtaque, Pokemon oponente)
     {
         Ataque ataqueElegido;
         ataqueElegido = this.activo.Ataques[indexAtaque];
         this.activo.atacar(oponente, ataqueElegido);
+    }
+    public void UsarSuperPocion(Pokemon pokemon)
+    {
+        gestorDeItems.UsarSuperPocion(pokemon, this.ContadorSuperPocion);
+    }
+
+    public void UsarRevivir(Pokemon pokemon)
+    {
+        gestorDeItems.UsarRevivir(pokemon, this.ContadorRevivir);
+    }
+
+    public void UsarCuraTotal(Pokemon pokemon)
+    {
+        gestorDeItems.UsarCuraTotal(pokemon, this.ContadorCuraTotal);
+    }
+
+    public void SeteodeItems()
+    {
+        this.ContadorSuperPocion = 4;
+        this.ContadorCuraTotal = 2;
+        this.ContadorRevivir = 1;
     }
 }

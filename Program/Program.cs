@@ -115,6 +115,7 @@ ItemSuperPocion itemSuperPocion = new ItemSuperPocion();
 entrenador1.UsarItem(itemSuperPocion, entrenador1.Activo);
 Console.WriteLine(itemSuperPocion);
 
+
 // Check the state of Pokémon after the turn
 Console.WriteLine($"{pikachu.Nombre} tiene {pikachu.Vida} vida restante.");
 Console.WriteLine($"{charmander.Nombre} tiene {charmander.Vida} vida restante.");
