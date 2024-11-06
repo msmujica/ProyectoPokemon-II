@@ -35,10 +35,11 @@ public class Pokemon
         set { tipos = value; }
     }
 
-    public bool EstaDerrotado
+    public bool EstaDerrotado { get; set; }
+    public bool EstaVivo
     {
-        get { return estaDerrotado; }
-        set { estaDerrotado = value; }
+        get { return !estaDerrotado; }
+        
     }
 
     public Pokemon(string nombre, int vida, List<Ataque> ataques, Tipos tipos)
@@ -54,13 +55,11 @@ public class Pokemon
 
     public void recibirDaño(int daño)
     {
-        if (!this.EstaDerrotado)
+        if (EstaVivo)
         {
-            this.Vida -= daño;
-            if (this.Vida <= 0)
+            Vida -= daño;
+            if (Vida <= 0)
             {
-                this.EstaDerrotado = true;
-                this.Vida = 0;
                 Console.WriteLine($"{this.Nombre} a sido derrotado");
             }
         }
@@ -72,8 +71,16 @@ public class Pokemon
 
     public void atacar(Pokemon oponente, Ataque ataque)
     {
-        int dañoSubdito = ataque.CalcularDaño(oponente);
+        if (EstaVivo)
+        { 
+            int dañoSubdito = ataque.CalcularDaño(oponente);
         
-        oponente.recibirDaño(dañoSubdito);
+            oponente.recibirDaño(dañoSubdito);
+            
+        }
+        else
+        {
+            Console.WriteLine($"{this.nombre} no puede ataquar porqur a sido derrotado");
+        }
     }
 }
