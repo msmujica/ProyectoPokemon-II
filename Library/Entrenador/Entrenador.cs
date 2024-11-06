@@ -56,10 +56,15 @@ public class Entrenador
             Console.WriteLine("Indice no valido. No se pudo cambiar el pokemon");
         }
     }
-    
+
     public void UsarItem(IItem item, Pokemon pokemon)
-    {
-        item.Usar(pokemon);
+    {if (item.Contador > 0)
+        {
+            if ((item is ItemRevivir && pokemon.EstaDerrotado) || (!(item is ItemRevivir) && !pokemon.EstaDerrotado))
+            {
+                item.Usar(pokemon);
+            }
+        }
     }
 
     public void elegirAtaque(int indexAtaque, Pokemon oponente)
