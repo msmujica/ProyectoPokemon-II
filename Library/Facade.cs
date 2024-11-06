@@ -11,7 +11,7 @@ namespace Ucu.Poo.DiscordBot.Domain;
 /// </summary>
 public class Facade
 {
-    private static Facade? _instance;
+    private static Facade ? _instance;
 
     // Este constructor privado impide que otras clases puedan crear instancias
     // de esta.

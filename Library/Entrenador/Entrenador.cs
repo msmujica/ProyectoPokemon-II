@@ -8,7 +8,6 @@ public class Entrenador
 {
     private string nombre;
     private List<Pokemon> equipo;
-    private List<IItem> items;
     private Pokemon activo;
 
     public string Nombre
@@ -48,6 +47,17 @@ public class Entrenador
 
             this.Equipo.Add(seleccion);
             this.Activo = seleccion;
+    }
+
+    public void MostrarmiPokedex()
+    {
+        int numero = 0;
+        Console.WriteLine("Lista de Pokemones en tu Pokedex");
+        foreach (var lista in this.Equipo)
+        {
+            Console.WriteLine($"{numero} - {lista.Nombre}");
+            numero += 1;
+        }
     }
     public void cambiarActivo(int indexPokemonList)
     {
