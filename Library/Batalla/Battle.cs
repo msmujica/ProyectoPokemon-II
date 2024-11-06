@@ -40,9 +40,14 @@ public class Battle
         this.TurnoActual = player1;
     }
 
-    public void atacar(Pokemon pokemon, int value)
+    public void atacar(int value)
     {
-        WaitingList.
+        
+    }
+
+    public void UsarItem()
+    {
+        
     }
 
     public void CambiarTurno()

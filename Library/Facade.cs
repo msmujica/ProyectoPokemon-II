@@ -1,3 +1,4 @@
+using System;
 using Library;
 
 namespace Ucu.Poo.DiscordBot.Domain;
@@ -133,10 +134,18 @@ public class Facade
         // Remover jugadores de la lista de espera
         this.WaitingList.RemoveTrainer(playerDisplayName);
         this.WaitingList.RemoveTrainer(opponentDisplayName);
-
-        // Crear batalla con objetos Entrenador
-        Battle battle = new Battle(player, opponent);
-        this.BattlesList.AddBattle(battle);
+        
+        int turnoRandom = new Random().Next(1, 2);
+        
+        switch (turnoRandom)
+        {
+            case 1:
+                this.BattlesList.AddBattle(player, opponent);
+                break;
+            case 2:
+                this.BattlesList.AddBattle(opponent, player);
+                break;
+        }
 
         return $"Comienza {player.Nombre} vs {opponent.Nombre}";
     }
@@ -151,7 +160,7 @@ public class Facade
     {
         // El símbolo ? luego de Trainer indica que la variable opponent puede
         // referenciar una instancia de Trainer o ser null.
-        Trainer? opponent;
+        Entrenador? opponent;
         
         if (!OpponentProvided() && !SomebodyIsWaiting())
         {
@@ -166,7 +175,7 @@ public class Facade
             // variable no es null. Estamos seguros porque SomebodyIsWaiting
             // retorna true si y solo si hay usuarios esperando y en tal caso
             // GetAnyoneWaiting nunca retorna null.
-            return this.CreateBattle(playerDisplayName, opponent!.DisplayName);
+            return this.CreateBattle(playerDisplayName, opponentDisplayName);
         }
 
         // El símbolo ! luego de opponentDisplayName indica que sabemos que esa
@@ -179,7 +188,7 @@ public class Facade
             return $"{opponentDisplayName} no está esperando";
         }
         
-        return this.CreateBattle(playerDisplayName, opponent!.DisplayName);
+        return this.CreateBattle(playerDisplayName, opponentDisplayName);
         
         // Funciones locales a continuación para mejorar la legibilidad
 
