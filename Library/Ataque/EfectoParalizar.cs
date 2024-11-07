@@ -1,33 +1,32 @@
 using System;
 
-namespace Library;
-
-public class EfectoParalizar
+namespace Library
 {
-  
-    public static void IniciarEfecto(Pokemon pokemon)
+    public class EfectoParalizar : Efecto
     {
-        Console.WriteLine($"{pokemon.Nombre} ha sido paralizado");
-    }
-
-    public static bool ProcesarEfecto(Pokemon pokemon)
-    {
-        if (PuedeAtacar())
+        public override void IniciarEfecto(Pokemon pokemon)
         {
-            Console.WriteLine($"{pokemon.Nombre} supera la paralisis en este turno");
-            return true;
+            Console.WriteLine($"{pokemon.Nombre} ha sido paralizado.");
         }
-        else
-        {
-            Console.WriteLine($"{pokemon.Nombre} esta paralizado por este turno");
-            return true;
-        }
-        
-    }
 
-    public bool PuedeAtacar()
-    {
-        // Genera un número aleatorio para determinar si puede atacar (70% de probabilidad de atacar)
-        return new Random().NextDouble() > 0.3;
+        public override bool ProcesarEfecto(Pokemon pokemon)
+        {
+            if (PuedeAtacar())
+            {
+                Console.WriteLine($"{pokemon.Nombre} supera la parálisis en este turno.");
+                return true; // El efecto continúa
+            }
+            else
+            {
+                Console.WriteLine($"{pokemon.Nombre} está paralizado y no puede atacar este turno.");
+                return true; // El efecto continúa
+            }
+        }
+
+        private bool PuedeAtacar()
+        {
+            // Genera un número aleatorio para determinar si puede atacar (70% de probabilidad de atacar)
+            return new Random().NextDouble() > 0.3;
+        }
     }
 }

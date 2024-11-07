@@ -7,8 +7,8 @@ public class Pokemon
 {
     private string nombre;
     private int vida;
-    private List<Ataque> ataques;
-    private Tipos tipos;
+    private List<string> ataques;
+    private string tipo;
     private bool estaDerrotado;
 
     public string Nombre
@@ -23,16 +23,16 @@ public class Pokemon
         set { vida = value; }
     }
 
-    public List<Ataque> Ataques
+    public List<string> Ataques
     {
         get { return ataques; }
         set { ataques = value; }
     }
 
-    public Tipos Tipos
+    public string Tipos
     {
-        get { return tipos; }
-        set { tipos = value; }
+        get { return tipo; }
+        set { tipo = value; }
     }
 
     public bool EstaDerrotado
@@ -41,15 +41,13 @@ public class Pokemon
         set { estaDerrotado = value; }
     }
 
-    public Pokemon(string nombre, int vida, List<Ataque> ataques, Tipos tipos)
+    public Pokemon(string nombre, int vida, List<string> ataques, string tipo)
     {
         this.Nombre = nombre;
         this.Vida = vida;
         this.Ataques = ataques;
-        this.Tipos = tipos;
+        this.Tipos = tipo;
         this.EstaDerrotado = false;
-        
-        Pokedex.agregarPokemon(this);
     }
 
     public void recibirDaño(int daño)
@@ -70,10 +68,9 @@ public class Pokemon
         }
     }
 
-    public void atacar(Pokemon oponente, Ataque ataque)
+    public void atacar(Pokemon oponente, string ataque)
     {
-        int dañoSubdito = ataque.CalcularDaño(oponente);
-        
-        oponente.recibirDaño(dañoSubdito);
+        int valor = Ataque.CalcularDaño(ataque, oponente);
+        oponente.recibirDaño(valor);
     }
 }

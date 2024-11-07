@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ProyectoPokemon-II\\Library\\Library.csproj": {}
+    "C:\\Users\\Estudiante UCU\\Documents\\ProyectoPokemon-II\\Library\\Library.csproj": {}
   },
   "projects": {
-    "C:\\ProyectoPokemon-II\\Library\\Library.csproj": {
+    "C:\\Users\\Estudiante UCU\\Documents\\ProyectoPokemon-II\\Library\\Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ProyectoPokemon-II\\Library\\Library.csproj",
+        "projectUniqueName": "C:\\Users\\Estudiante UCU\\Documents\\ProyectoPokemon-II\\Library\\Library.csproj",
         "projectName": "Library",
-        "projectPath": "C:\\ProyectoPokemon-II\\Library\\Library.csproj",
-        "packagesPath": "C:\\Users\\cuent\\.nuget\\packages\\",
-        "outputPath": "C:\\ProyectoPokemon-II\\Library\\obj\\",
+        "projectPath": "C:\\Users\\Estudiante UCU\\Documents\\ProyectoPokemon-II\\Library\\Library.csproj",
+        "packagesPath": "C:\\Users\\Estudiante UCU\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Estudiante UCU\\Documents\\ProyectoPokemon-II\\Library\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\cuent\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Estudiante UCU\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

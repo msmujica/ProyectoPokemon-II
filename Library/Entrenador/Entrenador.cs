@@ -30,23 +30,25 @@ public class Entrenador
     public int ContadorSuperPocion { get; set; }
     public int ContadorRevivir { get; set; }
     public int ContadorCuraTotal { get; set; }
+    
     private GestorDeItems gestorDeItems;
-
 
     public Entrenador(string nombre)
     {
         this.Nombre = nombre;
         this.Equipo = new List<Pokemon>();
         this.Activo = null;
-        gestorDeItems = new GestorDeItems(); // Inicialización del gestor de ítems
+        gestorDeItems = new GestorDeItems(); 
     }
 
-    public void elegirEquipo(int numero)
+    public string elegirEquipo(int numero)
     {
-            Pokemon seleccion = Pokedex.obtenerPokemonPorIndice(numero);
-
-            this.Equipo.Add(seleccion);
-            this.Activo = seleccion;
+        if (this.Equipo.Count >= 6)
+        {
+            return "Ya tienes la cantidad maxima de Pokemones en tu Equipo";
+        }
+        Pokedex.CrearPokemonPorIndice(numero, this);
+        return "Vuelve a ejecutar el mismo comando para poder empezar la batalla";
     }
 
     public void MostrarmiPokedex()
@@ -71,25 +73,28 @@ public class Entrenador
         }
     }
 
-    public void elegirAtaque(int indexAtaque, Pokemon oponente)
+    public void elegirAtaque(string nombre, Pokemon oponente)
     {
-        Ataque ataqueElegido;
-        ataqueElegido = this.activo.Ataques[indexAtaque];
-        this.activo.atacar(oponente, ataqueElegido);
-    }
-    public void UsarSuperPocion(Pokemon pokemon)
-    {
-        gestorDeItems.UsarSuperPocion(pokemon, this.ContadorSuperPocion);
+        this.activo.atacar(oponente, nombre);
     }
 
-    public void UsarRevivir(Pokemon pokemon)
+    public void UsarItem(string nombreItem, Pokemon pokemon)
     {
-        gestorDeItems.UsarRevivir(pokemon, this.ContadorRevivir);
-    }
-
-    public void UsarCuraTotal(Pokemon pokemon)
-    {
-        gestorDeItems.UsarCuraTotal(pokemon, this.ContadorCuraTotal);
+        switch (nombreItem)
+        {
+            case "Superpocion":
+                gestorDeItems.UsarSuperPocion(pokemon, ContadorSuperPocion);
+                break;
+            case "Revivir":
+                gestorDeItems.UsarRevivir(pokemon, ContadorRevivir);
+                break;
+            case "CuraTotal":
+                gestorDeItems.UsarCuraTotal(pokemon, ContadorCuraTotal);
+                break;
+            default:
+                Console.WriteLine("Ítem no válido.");
+                break;
+        }
     }
 
     public void SeteodeItems()

@@ -13,13 +13,13 @@ public class EfectoQuemar : Efecto
 
     public override bool ProcesarEfecto(Pokemon pokemon)
     {
-            int daño = (int)(pokemon.Vida * porcentajeDaño);
-            pokemon.Vida -= daño;
+        int daño = (int)(pokemon.Vida * porcentajeDaño);
+        pokemon.Vida -= daño;
             
-            if (pokemon.Vida <= 0)
-            { 
-                return false; // El efecto ha terminado
-            }
-            return true; // El efecto continúa
-     }
+        if (pokemon.Vida <= 0)
+        { 
+            return false; // El efecto ha terminado
+        }
+        return true; // El efecto continúa
+    }
 }
