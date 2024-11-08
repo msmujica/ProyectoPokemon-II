@@ -1,5 +1,6 @@
 ﻿using System;
 using Library;
+using Ucu.Poo.DiscordBot.Domain;
 
 // Crea dos entrenadores
 Entrenador Ash = new Entrenador("Ash");
@@ -41,3 +42,6 @@ Console.WriteLine("----------------------------------------");
 // Mostrar la vida final después de varios turnos
 Console.WriteLine($"Vida final de {Ash.Activo.Nombre}: {Ash.Activo.Vida}");
 Console.WriteLine($"Vida final de {Misty.Activo.Nombre}: {Misty.Activo.Vida}");
+
+
+Console.WriteLine(Facade.Instance.ShowPokémonAvailable());

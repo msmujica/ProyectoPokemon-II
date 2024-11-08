@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Library;
 
 namespace Ucu.Poo.DiscordBot.Domain;
@@ -206,5 +207,33 @@ public class Facade
         {
             return opponent != null;
         }
+    }
+
+    public string ShowPokémonAvailable()
+    {
+        List<string> pokedexLists = Pokedex.MostrarPokedex();
+        string value = string.Join("\n", pokedexLists);
+        return $"Pokemones Disponibles: \n{value}";
+    }
+
+    public string ChooseTeam(string playerDisplayName, int number)
+    {
+        Entrenador? player = this.BattlesList.FindTrainerByDisplayName(playerDisplayName);
+        player.elegirEquipo(number);
+        return $"El pokemon {Pokedex.MostrarPokemonPorIndice(number)}";
+    }
+
+    public string UseItem(string playerDisplayName, int opcionPokemon, string item)
+    {
+        Battle? battle = this.BattlesList.FindBattleByDisplayName(playerDisplayName);
+        battle.IntermediarioUsarItem(opcionPokemon, item);
+        return "El item fue usado";
+    }
+
+    public string AttackPokemon(string playerDisplayName, string opcionAtaque)
+    {
+        Battle? battle = this.BattlesList.FindBattleByDisplayName(playerDisplayName);
+        string ataque = battle.IntermediarioAtacar(opcionAtaque);
+        return ataque;
     }
 }

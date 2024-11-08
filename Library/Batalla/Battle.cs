@@ -53,7 +53,7 @@ public class Battle
         this.Actuo = false;
     }
 
-    public string Atacar(string opcionAtaque)
+    public string IntermediarioAtacar(string opcionAtaque)
     {
         if (this.TurnoActual.Equipo.Count < 6)
         {
@@ -83,7 +83,7 @@ public class Battle
         return "El ataque se a realizado con exito";
     }
 
-    public string CambiarPokemonActivo(int opcionPokemon)
+    public string IntermediarioCambiarPokemonActivo(int opcionPokemon)
     {
         if (this.Actuo)
         {
@@ -124,7 +124,7 @@ public class Battle
     }
 
 
-    public void UsarItem(int opcionPokemon, string opcionItem)
+    public void IntermediarioUsarItem(int opcionPokemon, string opcionItem)
     {
         if (this.Actuo)
         {

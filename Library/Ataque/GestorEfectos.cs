@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Ucu.Poo.DiscordBot.Domain;
 
 namespace Library
 {
@@ -54,6 +55,16 @@ namespace Library
             {
                 Console.WriteLine($"{pokemon.Nombre} no tiene efectos activos.");
             }
+        }
+
+        public static bool PokemonConEfecto(Pokemon pokemon)
+        {
+            if (efectosActivos.ContainsKey(pokemon))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

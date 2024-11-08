@@ -43,6 +43,11 @@ public static class Pokedex
         "Volador"
     };
 
+    public static string MostrarPokemonPorIndice(int indice)
+    {
+        return nombresPokemon[indice];
+    }
+
     public static List<string> MostrarPokedex()
     {
         List<string> pokedexList = new List<string>();

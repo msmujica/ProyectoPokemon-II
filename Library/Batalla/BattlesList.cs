@@ -22,4 +22,40 @@ public class BattlesList
         this.battles.Add(battle);
         return battle;
     }
+    
+    public Entrenador? FindTrainerByDisplayName(string displayName)
+    {
+        foreach (Battle batlle in this.battles)
+        {
+            if (batlle.Player1.Nombre == displayName)
+            {
+                return batlle.Player1;
+            }
+
+            if (batlle.Player2.Nombre == displayName)
+            {
+                return batlle.Player2;
+            }
+        }
+
+        return null;
+    }
+    
+    public Battle? FindBattleByDisplayName(string displayName)
+    {
+        foreach (Battle batlle in this.battles)
+        {
+            if (batlle.Player1.Nombre == displayName)
+            {
+                return batlle;
+            }
+
+            if (batlle.Player2.Nombre == displayName)
+            {
+                return batlle;
+            }
+        }
+
+        return null;
+    }
 }

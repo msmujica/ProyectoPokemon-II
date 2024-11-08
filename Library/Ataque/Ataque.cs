@@ -118,11 +118,14 @@ namespace Library
                 double multiplicador = LogicaTipos.CalcularMultiplicador(nombreAtaque, objetivo.Tipos); // Calcula multiplicador según tipos
                 dañoTotal = (int)(dañoTotal * multiplicador);
 
-                // Intenta aplicar un efecto especial con una probabilidad fija del 10%
-               if (AplicaEfectoEspecial())
+                if (GestorEfectos.PokemonConEfecto(objetivo))
                 {
-                    Efecto efectoEspecial = SeleccionarEfectoEspecial();
-                    GestorEfectos.AplicarEfecto(efectoEspecial, objetivo);
+                    // Intenta aplicar un efecto especial con una probabilidad fija del 10%
+                    if (AplicaEfectoEspecial())
+                    {
+                        Efecto efectoEspecial = SeleccionarEfectoEspecial();
+                        GestorEfectos.AplicarEfecto(efectoEspecial, objetivo);
+                    }   
                 }
             }
             else
