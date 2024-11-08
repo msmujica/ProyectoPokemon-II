@@ -6,13 +6,13 @@ public class EfectoDormir : Efecto
 {
     private int turnosDormidos;
 
-    public override void IniciarEfecto(Pokemon pokemon)
+    public void IniciarEfecto(Pokemon pokemon)
     {
         turnosDormidos = new Random().Next(1, 5); // Determina cuántos turnos dormirá
         Console.WriteLine($"{pokemon.Nombre} ha sido dormido por {turnosDormidos} turnos.");
     }
 
-    public override bool ProcesarEfecto(Pokemon pokemon)
+    public bool ProcesarEfecto(Pokemon pokemon)
     {
         if (turnosDormidos > 0)
         {

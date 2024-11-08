@@ -6,12 +6,12 @@ public class EfectoEnvenenar : Efecto
 {
     private double porcentajeDaño = 0.05; // 5%
 
-    public override void IniciarEfecto(Pokemon pokemon)
+    public void IniciarEfecto(Pokemon pokemon)
     {
         Console.WriteLine($"{pokemon.Nombre} ha sido envenenado.");
     }
 
-    public override bool ProcesarEfecto(Pokemon pokemon)
+    public bool ProcesarEfecto(Pokemon pokemon)
     {
         int daño = (int)(pokemon.Vida * porcentajeDaño);
         pokemon.Vida -= daño;

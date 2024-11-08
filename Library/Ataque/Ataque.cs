@@ -99,7 +99,7 @@ namespace Library
         }
 
         // Método estático para calcular el daño de un ataque
-        public static int CalcularDaño(string nombreAtaque, Pokemon objetivo)
+        public static int CalcularDaño(string nombreAtaque, Pokemon objetivo, GestorEfectos gestorEfectos)
         {
             var ataque = ObtenerAtaque(nombreAtaque);
             if (ataque.Daño == 0)
@@ -118,13 +118,13 @@ namespace Library
                 double multiplicador = LogicaTipos.CalcularMultiplicador(nombreAtaque, objetivo.Tipos); // Calcula multiplicador según tipos
                 dañoTotal = (int)(dañoTotal * multiplicador);
 
-                if (GestorEfectos.PokemonConEfecto(objetivo))
+                if (gestorEfectos.PokemonConEfecto(objetivo))
                 {
                     // Intenta aplicar un efecto especial con una probabilidad fija del 10%
                     if (AplicaEfectoEspecial())
                     {
                         Efecto efectoEspecial = SeleccionarEfectoEspecial();
-                        GestorEfectos.AplicarEfecto(efectoEspecial, objetivo);
+                        gestorEfectos.AplicarEfecto(efectoEspecial, objetivo);
                     }   
                 }
             }
