@@ -2,8 +2,13 @@ using System.Collections.Generic;
 
 namespace Library;
 
+/// <summary>
+/// Esta clase maneja la lógica de tipos en el sistema de batalla, determinando las debilidades, resistencias e inmunidades 
+/// de los tipos de Pokémon frente a otros tipos de ataques.
+/// </summary>
 public static class LogicaTipos
 {
+    // Diccionario de cada tipo de debilidades (tipos que son fuertes contra ese tipo).
     private static readonly Dictionary<string, List<string>> Debilidades = new Dictionary<string, List<string>>()
     {
         { "Agua", new List<string> { "Eléctrico", "Planta" } },
@@ -23,6 +28,7 @@ public static class LogicaTipos
         { "Volador", new List<string> { "Eléctrico", "Hielo", "Roca" } },
     };
 
+    // Diccionario de cada tipo de sus resistencias (tipos que son débiles contra ese tipo).
     private static readonly Dictionary<string, List<string>> Resistencias = new Dictionary<string, List<string>>()
     {
         { "Agua", new List<string> { "Agua", "Fuego", "Hielo" } },
@@ -38,6 +44,7 @@ public static class LogicaTipos
         { "Volador", new List<string> { "Bicho", "Lucha", "Planta" } },
     };
 
+    // Diccionario de cada tipo de sus inmunidades (tipos contra los que no tienen ningún efecto).
     private static readonly Dictionary<string, List<string>> Inmunidades = new Dictionary<string, List<string>>()
     {
         { "Eléctrico", new List<string> { "Eléctrico" } },
@@ -45,6 +52,12 @@ public static class LogicaTipos
         { "Normal", new List<string> { "Fantasma" } }
     };
 
+    /// <summary>
+    /// Calcula el multiplicador de daño que se aplica a un ataque según el tipo del atacante y el tipo del defensor.
+    /// </summary>
+    /// <param name="tipoAtaque">El tipo del Pokémon atacante.</param>
+    /// <param name="tipoDefensor">El tipo del Pokémon defensor.</param>
+    /// <returns>El multiplicador de daño (1: neutral, 2: super efectivo, 0.5: poco efectivo, 0: sin efecto).</returns>
     public static double CalcularMultiplicador(string tipoAtaque, string tipoDefensor)
     {
         if (Inmunidades.ContainsKey(tipoDefensor) && Inmunidades[tipoDefensor].Contains(tipoAtaque))

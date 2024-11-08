@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Estudiante UCU\\Desktop\\ProyectoPokemon-II\\Library\\Library.csproj",
+      "projectUniqueName": "C:\\Users\\Estudiante UCU\\Documents\\ProyectoPokemon-II\\Library\\Library.csproj",
       "projectName": "Library",
-      "projectPath": "C:\\Users\\Estudiante UCU\\Desktop\\ProyectoPokemon-II\\Library\\Library.csproj",
+      "projectPath": "C:\\Users\\Estudiante UCU\\Documents\\ProyectoPokemon-II\\Library\\Library.csproj",
       "packagesPath": "C:\\Users\\Estudiante UCU\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Estudiante UCU\\Desktop\\ProyectoPokemon-II\\Library\\obj\\",
+      "outputPath": "C:\\Users\\Estudiante UCU\\Documents\\ProyectoPokemon-II\\Library\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Estudiante UCU\\AppData\\Roaming\\NuGet\\NuGet.Config"

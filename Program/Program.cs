@@ -1,47 +1,49 @@
 ﻿using System;
-using Library;
-using Ucu.Poo.DiscordBot.Domain;
+using Ucu.Poo.DiscordBot.Domain;  // Asegúrate de incluir la referencia correcta a tu dominio
 
-// Crea dos entrenadores
-Entrenador Ash = new Entrenador("Ash");
-Entrenador Misty = new Entrenador("Misty");
+class Program
+{
+    static void Main()
+    {
+        // 1. Obtenemos la instancia única de Facade
+        var facade = Facade.Instance;
 
-// Elige un Pokémon para cada uno
-Ash.elegirEquipo(0);  // Squirtle (tipo Agua)
-Misty.elegirEquipo(5); // Charmander (tipo Fuego)
-Ash.SeteodeItems();
-Misty.SeteodeItems();
+        // 2. Creamos dos jugadores (entrenadores)
+        string player1 = "Ash";
+        string player2 = "Misty";
 
-// Muestra la vida inicial del Pokémon de Misty
-Console.WriteLine($"Vida inicial de {Misty.Activo.Nombre}: {Misty.Activo.Vida}");
+        // 3. Agregamos a ambos jugadores a la lista de espera
+        Console.WriteLine(facade.AddTrainerToWaitingList(player1));  // Ash agregado a la lista de espera
+        Console.WriteLine(facade.AddTrainerToWaitingList(player2));  // Misty agregado a la lista de espera
 
-// Mostrar la vida de ambos Pokémon antes del combate
-Console.WriteLine($"Vida de {Ash.Activo.Nombre}: {Ash.Activo.Vida}");
-Console.WriteLine($"Vida de {Misty.Activo.Nombre}: {Misty.Activo.Vida}");
-Console.WriteLine("----------------------------------------");
+        // 5. Comenzamos una batalla entre los dos jugadores
+        Console.WriteLine(facade.StartBattle(player1, player2));  // Comienza Ash vs Misty
 
-// Turno 1 - Ash ataca a Misty
-Ash.elegirAtaque("Pistola Agua", Misty.Activo);  // Squirtle usa Pistola Agua
-GestorEfectos.ProcesarEfectosTurno();
-Console.WriteLine($"Vida de {Misty.Activo.Nombre} después del ataque de Ash: {Misty.Activo.Vida}");
-Console.WriteLine("----------------------------------------");
-
-// Turno 2 - Misty usa un objeto (Superpocion)
-Misty.UsarItem("Superpocion", Misty.Activo);
-Console.WriteLine($"Vida de {Misty.Activo.Nombre} después de usar Superpoción: {Misty.Activo.Vida}");
-Console.WriteLine("----------------------------------------");
-
-
-// Turno 1 - Ash ataca a Misty
-Ash.elegirAtaque("Pistola Agua", Misty.Activo);  // Squirtle usa Pistola Agua
-GestorEfectos.ProcesarEfectosTurno();
-Console.WriteLine($"Vida de {Misty.Activo.Nombre} después del ataque de Ash: {Misty.Activo.Vida}");
-Console.WriteLine("----------------------------------------");
-
-
-// Mostrar la vida final después de varios turnos
-Console.WriteLine($"Vida final de {Ash.Activo.Nombre}: {Ash.Activo.Vida}");
-Console.WriteLine($"Vida final de {Misty.Activo.Nombre}: {Misty.Activo.Vida}");
-
-
-Console.WriteLine(Facade.Instance.ShowPokémonAvailable());
+      //  Console.WriteLine(facade.ShowPokémonAvailable());
+        
+        // 6. Elegimos el equipo de Ash (Por ejemplo, el Pokémon en el índice 1)
+        Console.WriteLine(facade.ChooseTeam(player1, 1));  // El pokemon <nombre_pokemon> seleccionado para Ash.
+        Console.WriteLine(facade.ChooseTeam(player1, 2));
+        Console.WriteLine(facade.ChooseTeam(player1, 3));
+        Console.WriteLine(facade.ChooseTeam(player1, 4));
+        Console.WriteLine(facade.ChooseTeam(player1, 5));
+        Console.WriteLine(facade.ChooseTeam(player1, 6));
+        
+        Console.WriteLine(facade.ChooseTeam(player2, 1));  // El pokemon <nombre_pokemon> seleccionado para Ash.
+        Console.WriteLine(facade.ChooseTeam(player2, 2));
+        Console.WriteLine(facade.ChooseTeam(player2, 3));
+        Console.WriteLine(facade.ChooseTeam(player2, 4));
+        Console.WriteLine(facade.ChooseTeam(player2, 5));
+        Console.WriteLine(facade.ChooseTeam(player2, 6));
+        
+        Console.WriteLine(facade.AttackPokemon(player1, "Picadura"));
+       // Console.WriteLine(facade.AttackPokemon(player2, "Pistola Agua"));
+       // Console.WriteLine(facade.ShowEnemiesPokemon(player2));
+       Console.WriteLine(facade.UseItem(player2, 0, "Revivir"));
+        
+       Console.WriteLine(facade.GetPokemonAtacks(player2));
+       Console.WriteLine(facade.ChangePokemon(player1, 3));
+       //Console.WriteLine(facade.ShowPokémonAvailable());
+       
+    }
+}

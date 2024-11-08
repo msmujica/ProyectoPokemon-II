@@ -1,7 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Windows.Markup;
 
 namespace Library;
+
+/// <summary>
+/// Clase que representa un Pokémon con nombre, puntos de vida, lista de ataques, tipo y estado de derrota.
+/// Permite recibir daño, realizar ataques y gestionar su estado de derrota.
+/// </summary>
 
 public class Pokemon
 {
@@ -40,7 +46,14 @@ public class Pokemon
         get { return estaDerrotado; }
         set { estaDerrotado = value; }
     }
-
+    
+    /// <summary>
+    /// Constructor de la clase Pokémon.
+    /// </summary>
+    /// <param name="nombre">Nombre del Pokémon.</param>
+    /// <param name="vida">Puntos de vida iniciales del Pokémon.</param>
+    /// <param name="ataques">Lista de ataques que puede realizar el Pokémon.</param>
+    /// <param name="tipo">Tipo o tipos del Pokémon.</param>
     public Pokemon(string nombre, int vida, List<string> ataques, string tipo)
     {
         this.Nombre = nombre;
@@ -50,6 +63,10 @@ public class Pokemon
         this.EstaDerrotado = false;
     }
 
+    /// <summary>
+    /// Método que permite al Pokémon recibir un cierto daño.
+    /// </summary>
+    /// <param name="daño">Cantidad de daño recibido.</param>
     public void recibirDaño(int daño)
     {
         if (!this.EstaDerrotado)
@@ -68,9 +85,25 @@ public class Pokemon
         }
     }
 
-    public void atacar(Pokemon oponente, string ataque)
+    /// <summary>
+    /// Método que permite al Pokémon realizar un ataque sobre otro Pokémon.
+    /// </summary>
+    /// <param name="oponente">Pokémon sobre el cual se realizará el ataque.</param>
+    /// <param name="ataque">Nombre del ataque que se realizará.</param>
+    /// <param name="gestorEfectos">Gestor de efectos para calcular el daño del ataque.</param>
+    /// <returns>El valor del daño causado al oponente como una cadena.</returns>
+    public string atacar(Pokemon oponente, string ataque, GestorEfectos gestorEfectos)
     {
-        int valor = Ataque.CalcularDaño(ataque, oponente);
-        oponente.recibirDaño(valor);
+        foreach (var VARIABLE in this.Ataques)
+        {
+            if (VARIABLE == ataque)
+            {
+                int valor = Ataque.CalcularDaño(ataque, oponente, gestorEfectos);
+                oponente.recibirDaño(valor);
+                return valor.ToString();
+            }
+        }
+
+        return "Flaco esto no es tu ataque";
     }
 }
