@@ -236,4 +236,11 @@ public class Facade
         string ataque = battle.IntermediarioAtacar(opcionAtaque);
         return ataque;
     }
+
+    public string GetPokemonAtacks(string playerDisplayName)
+    {
+        Entrenador? player = this.BattlesList.FindTrainerByDisplayName(playerDisplayName);
+        string result = "Esperan: ";
+
+    }
 }

@@ -47,15 +47,30 @@ public class Battle
         this.Player1 = player1;
         this.Player2 = player2;
         this.TurnoActual = player1;
-        this.TurnoPasado = Player2;
+        this.TurnoPasado = player2;
         player1.SeteodeItems();
         player2.SeteodeItems();
         this.Actuo = false;
     }
 
+    public bool validacionPokemon()
+    {
+        if (this.Player1.Equipo.Count < 6)
+        {
+            return false;
+        }
+
+        if (this.Player2.Equipo.Count < 6)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
     public string IntermediarioAtacar(string opcionAtaque)
     {
-        if (this.TurnoActual.Equipo.Count < 6)
+        if (validacionPokemon())
         {
             return "No tenes los pokemones suficientes para empezar la batalla";
         }
@@ -85,9 +100,9 @@ public class Battle
 
     public string IntermediarioCambiarPokemonActivo(int opcionPokemon)
     {
-        if (this.Actuo)
+        if (validacionPokemon())
         {
-            return "Ya realizaste una acción este turno.";
+            return "No tenes los pokemones suficientes para empezar la batalla";
         }
         
         if (this.Actuo)
@@ -124,12 +139,16 @@ public class Battle
     }
 
 
-    public void IntermediarioUsarItem(int opcionPokemon, string opcionItem)
+    public string IntermediarioUsarItem(int opcionPokemon, string opcionItem)
     {
+        if (validacionPokemon())
+        {
+            return "No tenes los pokemones suficientes para empezar la batalla";
+        }
+        
         if (this.Actuo)
         {
-            Console.WriteLine("Ya realizaste una acción este turno.");
-            return;
+            return "Ya realizaste una acción este turno.";
         }
 
         try
@@ -137,8 +156,7 @@ public class Battle
             // Verificar si el índice del Pokémon está en el rango
             if (opcionPokemon < 0 || opcionPokemon >= this.TurnoActual.Equipo.Count)
             {
-                Console.WriteLine("Selección de Pokémon inválida.");
-                return;
+                return "Selección de Pokémon inválida.";
             }
 
             Pokemon pokemonSeleccionado = this.TurnoActual.Equipo[opcionPokemon];
@@ -157,6 +175,8 @@ public class Battle
         {
             Console.WriteLine($"Ocurrió un error: {ex.Message}");
         }
+
+        return "Hecho";
     }
 
 
