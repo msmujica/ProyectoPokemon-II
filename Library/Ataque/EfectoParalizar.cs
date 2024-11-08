@@ -4,17 +4,17 @@ namespace Library
 {
     public class EfectoParalizar : Efecto
     {
-        public override void IniciarEfecto(Pokemon pokemon)
+        public void IniciarEfecto(Pokemon pokemon)
         {
             Console.WriteLine($"{pokemon.Nombre} ha sido paralizado.");
         }
 
-        public override bool ProcesarEfecto(Pokemon pokemon)
+        public bool ProcesarEfecto(Pokemon pokemon)
         {
             if (PuedeAtacar())
             {
                 Console.WriteLine($"{pokemon.Nombre} supera la parálisis en este turno.");
-                return true; // El efecto continúa
+                return false; // El efecto continúa
             }
             else
             {

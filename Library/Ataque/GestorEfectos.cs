@@ -4,11 +4,16 @@ using Ucu.Poo.DiscordBot.Domain;
 
 namespace Library
 {
-    public static class GestorEfectos
-    { 
-        private static Dictionary<Pokemon, List<Efecto>> efectosActivos = new Dictionary<Pokemon, List<Efecto>>();
+    public class GestorEfectos
+    {
+        private Dictionary<Pokemon, List<Efecto>> efectosActivos;
 
-        public static void AplicarEfecto(Efecto efecto, Pokemon pokemon)
+        public GestorEfectos()
+        {
+            this.efectosActivos = new Dictionary<Pokemon, List<Efecto>>();
+        }
+
+        public void AplicarEfecto(Efecto efecto, Pokemon pokemon)
         {
             if (efecto == null || pokemon == null)
             {
@@ -26,7 +31,28 @@ namespace Library
             efecto.IniciarEfecto(pokemon);
         }
 
-        public static void ProcesarEfectosTurno()
+        public bool ProcesarControlMasa(Pokemon pokem)
+        {
+            // Verifica si el Pokémon tiene efectos activos
+            if (!efectosActivos.ContainsKey(pokem))
+            {
+                Console.WriteLine($"{pokem.Nombre} no tiene efectos activos.");
+                return false;
+            }
+
+            List<Efecto> efectos = efectosActivos[pokem];
+            foreach (var v in efectos)
+            {
+                if (v is EfectoDormir || v is EfectoParalizar)
+                {
+                    return v.ProcesarEfecto(pokem);
+                }
+            }
+
+            return false;
+        }
+
+        public void ProcesarEfectosDaño()
         {
             foreach (var entry in efectosActivos)
             {
@@ -36,15 +62,15 @@ namespace Library
                 for (int i = efectos.Count - 1; i >= 0; i--)
                 {
                     Efecto efecto = efectos[i];
-                    if (!efecto.ProcesarEfecto(pokemon)) // Si el efecto ha terminado
+                    if (efecto is EfectoEnvenenar || efecto is EfectoQuemar)
                     {
-                        efectos.RemoveAt(i); // Lo eliminamos de la lista
+                        efecto.ProcesarEfecto(pokemon);
                     }
                 }
             }
         }
         
-        public static void LimpiarEfectos(Pokemon pokemon)
+        public void LimpiarEfectos(Pokemon pokemon)
         {
             if (efectosActivos.ContainsKey(pokemon))
             {
@@ -57,7 +83,7 @@ namespace Library
             }
         }
 
-        public static bool PokemonConEfecto(Pokemon pokemon)
+        public bool PokemonConEfecto(Pokemon pokemon)
         {
             if (efectosActivos.ContainsKey(pokemon))
             {
