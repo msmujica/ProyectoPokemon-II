@@ -209,6 +209,10 @@ public class Facade
         }
     }
 
+    /// <summary>
+    /// Muestra todos los Pokémon disponibles en la Pokédex del juego.
+    /// </summary>
+    /// <returns>Una cadena con la lista de Pokémon disponibles.</returns>
     public string ShowPokémonAvailable()
     {
         List<string> pokedexLists = Pokedex.MostrarPokedex();
@@ -216,6 +220,30 @@ public class Facade
         return $"Pokemones Disponibles: \n{value}";
     }
 
+    /// <summary>
+    /// Muestra los Pokémon del equipo del jugador especificado.
+    /// </summary>
+    /// <param name="playerDisplayName">El nombre del jugador.</param>
+    /// <returns>Una cadena con la lista de Pokémon del jugador.</returns>
+    public string ShowEnemiesPokemon(string playerDisplayName)
+    {
+        string value = "Pokemon:\n";
+        Entrenador? player = this.BattlesList.FindTrainerByDisplayName(playerDisplayName);
+        List<Pokemon> pokemones = player.Equipo;
+        foreach (var VARIABLE in pokemones)
+        {
+            value += "\n" + VARIABLE.Nombre + "Vida: " + VARIABLE.Vida + "/100";
+        }
+
+        return value;
+    }
+
+    /// <summary>
+    /// Permite al jugador elegir un equipo de Pokémon para una batalla.
+    /// </summary>
+    /// <param name="playerDisplayName">El nombre del jugador.</param>
+    /// <param name="number">El índice del Pokémon en la Pokédex.</param>
+    /// <returns>Un mensaje indicando el Pokémon elegido.</returns>
     public string ChooseTeam(string playerDisplayName, int number)
     {
         Entrenador? player = this.BattlesList.FindTrainerByDisplayName(playerDisplayName);
@@ -223,6 +251,13 @@ public class Facade
         return $"El pokemon {Pokedex.MostrarPokemonPorIndice(number)}";
     }
 
+    /// <summary>
+    /// Permite al jugador usar un ítem durante una batalla.
+    /// </summary>
+    /// <param name="playerDisplayName">El nombre del jugador.</param>
+    /// <param name="opcionPokemon">La opción del Pokémon en el equipo.</param>
+    /// <param name="item">El ítem a usar.</param>
+    /// <returns>El resultado de usar el ítem.</returns>
     public string UseItem(string playerDisplayName, int opcionPokemon, string item)
     {
         Battle? battle = this.BattlesList.FindBattleByDisplayName(playerDisplayName);
@@ -232,10 +267,15 @@ public class Facade
             return "No es tu turno ESPERA!";
         }
         
-        battle.IntermediarioUsarItem(opcionPokemon, item);
-        return "El item fue usado";
+        return battle.IntermediarioUsarItem(opcionPokemon, item);
     }
 
+    /// <summary>
+    /// Permite al jugador atacar con un Pokémon durante una batalla.
+    /// </summary>
+    /// <param name="playerDisplayName">El nombre del jugador.</param>
+    /// <param name="opcionAtaque">El ataque a realizar.</param>
+    /// <returns>El resultado del ataque.</returns>
     public string AttackPokemon(string playerDisplayName, string opcionAtaque)
     {
         Battle? battle = this.BattlesList.FindBattleByDisplayName(playerDisplayName);
@@ -245,23 +285,56 @@ public class Facade
             return "No es tu turno ESPERA!";
         }
         
-        string ataque = battle.IntermediarioAtacar(opcionAtaque);
-        return ataque;
+        return battle.IntermediarioAtacar(opcionAtaque);
     }
 
+    /// <summary>
+    /// Permite al jugador cambiar de Pokémon activo durante una batalla.
+    /// </summary>
+    /// <param name="playerDisplayName">El nombre del jugador.</param>
+    /// <param name="opcion">La opción del Pokémon en el equipo.</param>
+    /// <returns>El resultado del cambio de Pokémon.</returns>
+    public string ChangePokemon(string playerDisplayName, int opcion)
+    {
+        Battle? battle = this.BattlesList.FindBattleByDisplayName(playerDisplayName);
+        return battle.IntermediarioCambiarPokemonActivo(opcion);
+    }
+
+    /// <summary>
+    /// Obtiene los ataques disponibles del Pokémon activo del jugador.
+    /// </summary>
+    /// <param name="playerDisplayName">El nombre del jugador.</param>
+    /// <returns>Una cadena con la lista de ataques del Pokémon activo.</returns>
     public string GetPokemonAtacks(string playerDisplayName)
     {
         Entrenador? player = this.BattlesList.FindTrainerByDisplayName(playerDisplayName);
-        Pokemon activo = player.Activo;
-        string result = "Esperan: ";
-        foreach (var VARIABLE in activo.Ataques)
+        if (player == null)
         {
-            result = result + "\n"+VARIABLE + "; ";
+            return "Entrenador no encontrado.";
         }
-        
+        Pokemon activo = player.Activo;
+        if (activo == null)
+        {
+            return "El Pokémon activo del entrenador no está disponible.";
+        }
+        string result = "Ataques:\n";
+
+        foreach (var ataque in activo.Ataques)
+        {
+            var (dañoAtaque, tipoAtaque) = Ataque.ObtenerAtaque(ataque);
+
+            result += $"{ataque}: Tipo = {tipoAtaque}, Daño = {dañoAtaque}\n";
+        }
+
         return result;
     }
 
+    /// <summary>
+    /// Valida si es el turno del jugador durante una batalla.
+    /// </summary>
+    /// <param name="playerDisplayName">El nombre del jugador.</param>
+    /// <param name="batt">La batalla en curso.</param>
+    /// <returns>True si es el turno del jugador, False de lo contrario.</returns>
     public bool ValidacionTurno(string playerDisplayName, Battle batt)
     {
         Entrenador? player = this.BattlesList.FindTrainerByDisplayName(playerDisplayName);

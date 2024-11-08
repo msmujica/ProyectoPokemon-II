@@ -2,10 +2,19 @@ using System;
 
 namespace Library.Items
 {
+    /// <summary>
+    /// Esta clase gestiona el uso de objetos de curación y revivir en los Pokémon durante la batalla.
+    /// </summary>
     public class GestorDeItems
     {
-        // Método para usar una SuperPocion
-        public void UsarSuperPocion(Pokemon pokemon, int contadorSuperPocion)
+        /// <summary>
+        /// Usa una SuperPoción en un Pokémon, restaurando su vida hasta un máximo de 100.
+        /// </summary>
+        /// <param name="pokemon">El Pokémon al que se le aplicará la SuperPoción.</param>
+        /// <param name="contadorSuperPocion">El número de SuperPociones disponibles.</param>
+        /// <returns>Un mensaje indicando el resultado de usar la SuperPoción.</returns>
+        /// 
+        public string UsarSuperPocion(Pokemon pokemon, int contadorSuperPocion)
         {
             if (contadorSuperPocion > 0)
             {
@@ -15,21 +24,26 @@ namespace Library.Items
                     if (pokemon.Vida > 100)
                         pokemon.Vida = 100; // No superar el 100%
                     contadorSuperPocion--;
-                    Console.WriteLine("Usaste una Super Pocion. Usos restantes: " + contadorSuperPocion);
+                    return ("Usaste una Super Pocion. Usos restantes: " + contadorSuperPocion);
                 }
                 else
                 {
-                    Console.WriteLine("El Pokémon ya está a máxima vida.");
+                    return ("El Pokémon ya está a máxima vida.");
                 }
             }
             else
             {
-                Console.WriteLine("No tienes Super Pociones disponibles.");
+                return ("No tienes Super Pociones disponibles.");
             }
         }
 
-        // Método para usar un Revivir
-        public void UsarRevivir(Pokemon pokemon, int contadorRevivir)
+        /// <summary>
+        /// Usa un Revivir para resucitar a un Pokémon derrotado, restaurándole 50% de vida.
+        /// </summary>
+        /// <param name="pokemon">El Pokémon que se revivirá.</param>
+        /// <param name="contadorRevivir">El número de Revivir disponibles.</param>
+        /// <returns>Un mensaje indicando el resultado de usar el Revivir.</returns>
+        public string UsarRevivir(Pokemon pokemon, int contadorRevivir)
         {
             if (contadorRevivir > 0)
             {
@@ -38,32 +52,38 @@ namespace Library.Items
                     pokemon.EstaDerrotado = false;
                     pokemon.Vida = 50; // Revive con 50% de vida
                     contadorRevivir--;
-                    Console.WriteLine("Usaste un Revivir. Usos restantes: " + contadorRevivir);
+                    return ("Usaste un Revivir. Usos restantes: " + contadorRevivir);
                 }
                 else
                 {
-                    Console.WriteLine("El Pokémon no está derrotado.");
+                    return ("El Pokémon no está derrotado.");
                 }
             }
             else
             {
-                Console.WriteLine("No tienes Revivir disponible.");
+                return ("No tienes Revivir disponible.");
             }
         }
 
-        // Método para usar una CuraTotal
-        public void UsarCuraTotal(Pokemon pokemon, int contadorCuraTotal)
+        /// <summary>
+        /// Usa una Cura Total para restaurar la vida de un Pokémon al 100% y eliminar cualquier efecto negativo.
+        /// </summary>
+        /// <param name="pokemon">El Pokémon al que se le aplicará la Cura Total.</param>
+        /// <param name="contadorCuraTotal">El número de Curaciones Totales disponibles.</param>
+        /// <param name="gestorEfectos">El gestor de efectos que se usará para limpiar efectos negativos.</param>
+        /// <returns>Un mensaje indicando el resultado de usar la Cura Total.</returns>
+        public string UsarCuraTotal(Pokemon pokemon, int contadorCuraTotal, GestorEfectos gestorEfectos)
         {
             if (contadorCuraTotal > 0)
             {
                 pokemon.Vida = 100; // Cura completamente al Pokémon
-                GestorEfectos.LimpiarEfectos(pokemon);
+                gestorEfectos.LimpiarEfectos(pokemon);
                 contadorCuraTotal--;
-                Console.WriteLine("Usaste una Cura Total. Usos restantes: " + contadorCuraTotal);
+                return ("Usaste una Cura Total. Usos restantes: " + contadorCuraTotal);
             }
             else
             {
-                Console.WriteLine("No tienes Curaciones Totales disponibles.");
+                return ("No tienes Curaciones Totales disponibles.");
             }
         }
     }

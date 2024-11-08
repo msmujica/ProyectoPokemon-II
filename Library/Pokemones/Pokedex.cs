@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace Library;
 
+/// <summary>
+/// Esta clase gestiona la Pokedex, permitiendo la creación de Pokémon a partir de un índice,
+/// mostrar la lista de Pokémon en la Pokedex, y obtener detalles sobre un Pokémon en particular.
+/// </summary>
 public static class Pokedex
 {
     private static List<string> nombresPokemon = new List<string>
@@ -43,11 +47,20 @@ public static class Pokedex
         "Volador"
     };
 
+    /// <summary>
+    /// Muestra el nombre de un Pokémon dado su índice en la Pokedex.
+    /// </summary>
+    /// <param name="indice">El índice del Pokémon en la Pokedex.</param>
+    /// <returns>El nombre del Pokémon en la Pokedex en el índice especificado.</returns>
     public static string MostrarPokemonPorIndice(int indice)
     {
         return nombresPokemon[indice];
     }
 
+    /// <summary>
+    /// Muestra una lista con todos los Pokémon en la Pokedex, junto con su tipo.
+    /// </summary>
+    /// <returns>Una lista de cadenas que representan los Pokémon en la Pokedex, con su nombre y tipo.</returns>
     public static List<string> MostrarPokedex()
     {
         List<string> pokedexList = new List<string>();
@@ -59,6 +72,12 @@ public static class Pokedex
         return pokedexList;
     }
 
+    /// <summary>
+    /// Crea un Pokémon a partir de su índice en la Pokedex y lo agrega al equipo del entrenador.
+    /// </summary>
+    /// <param name="indice">El índice del Pokémon en la Pokedex.</param>
+    /// <param name="entrenador">El entrenador al que se le asignará el Pokémon creado.</param>
+    /// <returns>El Pokémon creado, o null si el índice es inválido.</returns>
     public static Pokemon CrearPokemonPorIndice(int indice, Entrenador entrenador)
     {
         int vidaInicial = 100;
@@ -116,6 +135,7 @@ public static class Pokedex
                 return null;
         }
 
+        // Si se crea un Pokémon, se agrega al equipo del entrenador
         if (nuevoPokemon != null)
         {
             entrenador.Equipo.Add(nuevoPokemon);
