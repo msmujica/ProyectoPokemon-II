@@ -68,9 +68,47 @@ public class Battle
         return false;
     }
 
+    public bool ValidacionWin()
+    {
+        int count = 0;
+        foreach (var poke in this.TurnoPasado.Equipo)
+        {
+            if (poke.Vida < 0)
+            {
+                count++;
+            }
+        }
+
+        if (count == 6)
+        {
+            return true;
+        }
+        
+        return false;
+    }
+
+    public void ValidacionPokemon()
+    {
+        if (Player1.Activo.Vida <= 0)
+        {
+            Player1.CambioPokemonMuerto();
+        }
+
+        if (Player2.Activo.Vida <= 0)
+        {
+            Player2.CambioPokemonMuerto();
+        }
+    }
 
     public string IntermediarioAtacar(string opcionAtaque)
     {
+        validacionPokemon();
+        
+        if (ValidacionWin())
+        {
+            Win();
+        }
+        
         if (validacionPokemon())
         {
             return "No tenes los pokemones suficientes para empezar la batalla";
@@ -102,6 +140,13 @@ public class Battle
 
     public string IntermediarioCambiarPokemonActivo(int opcionPokemon)
     {
+        validacionPokemon();
+        
+        if (ValidacionWin())
+        {
+            Win();
+        }
+        
         if (validacionPokemon())
         {
             return "No tenes los pokemones suficientes para empezar la batalla";
@@ -143,6 +188,13 @@ public class Battle
 
     public string IntermediarioUsarItem(int opcionPokemon, string opcionItem)
     {
+        validacionPokemon();
+        
+        if (ValidacionWin())
+        {
+            Win();
+        }
+        
         if (validacionPokemon())
         {
             return "No tenes los pokemones suficientes para empezar la batalla";
@@ -193,5 +245,9 @@ public class Battle
 
         Console.WriteLine($"Es el turno de {this.TurnoActual.Nombre}");
     }
-}
 
+    public string Win()
+    {
+        return $"El jugador {this.TurnoActual} a ganado";
+    }
+} 

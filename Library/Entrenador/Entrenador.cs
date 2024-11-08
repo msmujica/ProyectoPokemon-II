@@ -97,6 +97,19 @@ public class Entrenador
         }
     }
 
+    public void CambioPokemonMuerto()
+    {
+        int count = 0;
+        foreach (var pok in this.Equipo)
+        {
+            if (pok.Vida > 0)
+            {
+                this.Activo = pok;
+            }
+        }
+
+    }
+
     public void SeteodeItems()
     {
         this.ContadorSuperPocion = 4;

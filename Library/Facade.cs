@@ -226,6 +226,12 @@ public class Facade
     public string UseItem(string playerDisplayName, int opcionPokemon, string item)
     {
         Battle? battle = this.BattlesList.FindBattleByDisplayName(playerDisplayName);
+        
+        if (ValidacionTurno(playerDisplayName, battle))
+        {
+            return "No es tu turno ESPERA!";
+        }
+        
         battle.IntermediarioUsarItem(opcionPokemon, item);
         return "El item fue usado";
     }
@@ -233,6 +239,12 @@ public class Facade
     public string AttackPokemon(string playerDisplayName, string opcionAtaque)
     {
         Battle? battle = this.BattlesList.FindBattleByDisplayName(playerDisplayName);
+        
+        if (ValidacionTurno(playerDisplayName, battle))
+        {
+            return "No es tu turno ESPERA!";
+        }
+        
         string ataque = battle.IntermediarioAtacar(opcionAtaque);
         return ataque;
     }
@@ -248,5 +260,16 @@ public class Facade
         }
         
         return result;
+    }
+
+    public bool ValidacionTurno(string playerDisplayName, Battle batt)
+    {
+        Entrenador? player = this.BattlesList.FindTrainerByDisplayName(playerDisplayName);
+        if (player.Nombre != batt.TurnoActual.Nombre)
+        {
+            return true;
+        }
+
+        return false;
     }
 }
