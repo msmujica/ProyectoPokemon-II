@@ -240,7 +240,13 @@ public class Facade
     public string GetPokemonAtacks(string playerDisplayName)
     {
         Entrenador? player = this.BattlesList.FindTrainerByDisplayName(playerDisplayName);
+        Pokemon activo = player.Activo;
         string result = "Esperan: ";
-
+        foreach (var VARIABLE in activo.Ataques)
+        {
+            result = result + "\n"+VARIABLE + "; ";
+        }
+        
+        return result;
     }
 }

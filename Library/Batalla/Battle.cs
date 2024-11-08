@@ -57,16 +57,17 @@ public class Battle
     {
         if (this.Player1.Equipo.Count < 6)
         {
-            return false;
+            return true;
         }
 
         if (this.Player2.Equipo.Count < 6)
         {
-            return false;
+            return true;
         }
 
-        return true;
+        return false;
     }
+
 
     public string IntermediarioAtacar(string opcionAtaque)
     {
@@ -74,6 +75,7 @@ public class Battle
         {
             return "No tenes los pokemones suficientes para empezar la batalla";
         }
+        
         if (this.Actuo)
         {
             return "Ya realizaste una acción este turno.";
@@ -187,7 +189,7 @@ public class Battle
 
         // Cambiar al otro jugador
         this.TurnoActual = (this.TurnoActual == Player1) ? Player2 : Player1;
-        this.TurnoPasado = (this.TurnoActual == Player1) ? Player2 : Player1;
+        this.TurnoPasado = (this.TurnoPasado == Player2) ? Player1 : Player2;
 
         Console.WriteLine($"Es el turno de {this.TurnoActual.Nombre}");
     }
