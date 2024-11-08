@@ -11,12 +11,12 @@ namespace Library
     public class GestorEfectos
     {
         // Diccionario que almacena los efectos activos para cada Pokémon
-        private Dictionary<Pokemon, List<Efecto>> efectosActivos;
+        private Dictionary<Pokemon, List<IEfecto>> efectosActivos;
 
         // Constructor que inicializa el diccionario de efectos
         public GestorEfectos()
         {
-            this.efectosActivos = new Dictionary<Pokemon, List<Efecto>>();
+            this.efectosActivos = new Dictionary<Pokemon, List<IEfecto>>();
         }
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Library
         /// </summary>
         /// <param name="efecto">El efecto a aplicar.</param>
         /// <param name="pokemon">El Pokémon que recibirá el efecto.</param>
-        public void AplicarEfecto(Efecto efecto, Pokemon pokemon)
+        public void AplicarEfecto(IEfecto efecto, Pokemon pokemon)
         {
             if (efecto == null || pokemon == null)
             {
@@ -35,7 +35,7 @@ namespace Library
             // Asegura que haya una lista de efectos para el Pokémon en el diccionario
             if (!efectosActivos.ContainsKey(pokemon))
             {
-                efectosActivos[pokemon] = new List<Efecto>();
+                efectosActivos[pokemon] = new List<IEfecto>();
             }
 
             // Añade el efecto a la lista de efectos del Pokémon
@@ -62,7 +62,7 @@ namespace Library
                 return false;
             }
 
-            List<Efecto> efectos = efectosActivos[pokem];
+            List<IEfecto> efectos = efectosActivos[pokem];
             foreach (var v in efectos)
             {
                 // Procesa efectos como dormir o paralizar
@@ -84,12 +84,12 @@ namespace Library
             foreach (var entry in efectosActivos)
             {
                 Pokemon pokemon = entry.Key;
-                List<Efecto> efectos = entry.Value;
+                List<IEfecto> efectos = entry.Value;
 
                 // Recorre cada efecto y aplica los que son de daño continuo
                 for (int i = efectos.Count - 1; i >= 0; i--)
                 {
-                    Efecto efecto = efectos[i];
+                    IEfecto efecto = efectos[i];
                     if (efecto is EfectoEnvenenar || efecto is EfectoQuemar)
                     {
                         // Procesa el daño del efecto

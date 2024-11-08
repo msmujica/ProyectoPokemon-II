@@ -6,7 +6,7 @@ namespace Library
     /// Clase que representa el efecto de "dormir" aplicado a un Pokémon.
     /// Cuando un Pokémon está dormido, pierde turnos y no puede actuar hasta que despierte.
     /// </summary>
-    public class EfectoDormir : Efecto
+    public class EfectoDormir : IEfecto
     {
         // Almacena el número de turnos que el Pokémon permanecerá dormido
         private int turnosDormidos;

@@ -6,7 +6,7 @@ namespace Library
     /// Clase que representa el efecto de "quemar" a un Pokémon.
     /// Un Pokémon quemado pierde un 10% de su vida máxima en cada turno.
     /// </summary>
-    public class EfectoQuemar : Efecto
+    public class EfectoQuemar : IEfecto
     {
         // Porcentaje de la vida máxima que pierde el Pokémon debido a la quemadura (10%)
         private static double porcentajeDaño = 0.10; 

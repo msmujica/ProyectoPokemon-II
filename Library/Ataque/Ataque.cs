@@ -143,7 +143,7 @@ namespace Library
                     // Intenta aplicar un efecto especial con una probabilidad fija del 10%
                     if (AplicaEfectoEspecial())
                     {
-                        Efecto efectoEspecial = SeleccionarEfectoEspecial();
+                        IEfecto efectoEspecial = SeleccionarEfectoEspecial();
                         gestorEfectos.AplicarEfecto(efectoEspecial, objetivo);
                     }
                 }
@@ -187,7 +187,7 @@ namespace Library
         /// Selecciona un efecto especial aleatorio para aplicar (dormir, paralizar, envenenar, quemar).
         /// </summary>
         /// <returns>El efecto especial seleccionado.</returns>
-        public static Efecto SeleccionarEfectoEspecial()
+        public static IEfecto SeleccionarEfectoEspecial()
         {
             int efecto = new Random().Next(1, 5);
 

@@ -6,7 +6,7 @@ namespace Library
     /// Clase que representa el efecto de "envenenar" a un Pokémon.
     /// Un Pokémon envenenado pierde una cierta cantidad de vida por cada turno que pasa.
     /// </summary>
-    public class EfectoEnvenenar : Efecto
+    public class EfectoEnvenenar : IEfecto
     {
         // Porcentaje de vida que el Pokémon pierde por turno debido al veneno (5%)
         private double porcentajeDaño = 0.05;
