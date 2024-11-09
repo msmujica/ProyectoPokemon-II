@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Estudiante UCU\\.nuget\\packages\\": {}
+    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Estudiante UCU\\Documents\\ProyectoPokemon-II\\Library\\Library.csproj",
+      "projectUniqueName": "C:\\Prog 2\\ProyectoPokemon-II\\Library\\Library.csproj",
       "projectName": "Library",
-      "projectPath": "C:\\Users\\Estudiante UCU\\Documents\\ProyectoPokemon-II\\Library\\Library.csproj",
-      "packagesPath": "C:\\Users\\Estudiante UCU\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Estudiante UCU\\Documents\\ProyectoPokemon-II\\Library\\obj\\",
+      "projectPath": "C:\\Prog 2\\ProyectoPokemon-II\\Library\\Library.csproj",
+      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+      "outputPath": "C:\\Prog 2\\ProyectoPokemon-II\\Library\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Estudiante UCU\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
