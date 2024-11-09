@@ -2,12 +2,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using Library;
 
+
 namespace Library.Tests
 {
     [TestClass]
     public class EntrenadorTests
     {
-        private Entrenador entrenador;
+        public Entrenador entrenador;
 
         [TestInitialize]
         public void SetUp()
