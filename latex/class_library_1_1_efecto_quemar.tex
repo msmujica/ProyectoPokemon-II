@@ -1,0 +1,72 @@
+\doxysection{Library.\+Efecto\+Quemar Class Reference}
+\hypertarget{class_library_1_1_efecto_quemar}{}\label{class_library_1_1_efecto_quemar}\index{Library.EfectoQuemar@{Library.EfectoQuemar}}
+
+
+Clase que representa el efecto de "{}quemar"{} a un Pokémon. Un Pokémon quemado pierde un 10\% de su vida máxima en cada turno.  
+
+
+Inheritance diagram for Library.\+Efecto\+Quemar\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_library_1_1_efecto_quemar}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_library_1_1_efecto_quemar_a33409f7f16ea77cb5fa494aafa73231e}{Iniciar\+Efecto}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Inicia el efecto de "{}quemar"{} en el Pokémon. Este efecto causa daño continuo al Pokémon en cada turno. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_efecto_quemar_a464b79b03e588c899a95975ebec78c91}{Procesar\+Efecto}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Procesa el efecto de la quemadura en el Pokémon en cada turno. Reduce la vida del Pokémon en función de su vida máxima. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase que representa el efecto de "{}quemar"{} a un Pokémon. Un Pokémon quemado pierde un 10\% de su vida máxima en cada turno. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_efecto_quemar_a33409f7f16ea77cb5fa494aafa73231e}\index{Library.EfectoQuemar@{Library.EfectoQuemar}!IniciarEfecto@{IniciarEfecto}}
+\index{IniciarEfecto@{IniciarEfecto}!Library.EfectoQuemar@{Library.EfectoQuemar}}
+\doxysubsubsection{\texorpdfstring{IniciarEfecto()}{IniciarEfecto()}}
+{\footnotesize\ttfamily \label{class_library_1_1_efecto_quemar_a33409f7f16ea77cb5fa494aafa73231e} 
+void Library.\+Efecto\+Quemar.\+Iniciar\+Efecto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicia el efecto de "{}quemar"{} en el Pokémon. Este efecto causa daño continuo al Pokémon en cada turno. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon que será quemado.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_efecto_abb00ba77fb8e361cbd476d94df5f050b}{Library.\+IEfecto}}.
+
+\Hypertarget{class_library_1_1_efecto_quemar_a464b79b03e588c899a95975ebec78c91}\index{Library.EfectoQuemar@{Library.EfectoQuemar}!ProcesarEfecto@{ProcesarEfecto}}
+\index{ProcesarEfecto@{ProcesarEfecto}!Library.EfectoQuemar@{Library.EfectoQuemar}}
+\doxysubsubsection{\texorpdfstring{ProcesarEfecto()}{ProcesarEfecto()}}
+{\footnotesize\ttfamily \label{class_library_1_1_efecto_quemar_a464b79b03e588c899a95975ebec78c91} 
+bool Library.\+Efecto\+Quemar.\+Procesar\+Efecto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Procesa el efecto de la quemadura en el Pokémon en cada turno. Reduce la vida del Pokémon en función de su vida máxima. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon que está bajo el efecto de la quemadura.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si el efecto sigue activo (es decir, el Pokémon sigue quemado y pierde vida). {\ttfamily false} si el efecto ha terminado (es decir, el Pokémon ha quedado KO). 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_efecto_a290b54e877cd0802534285d9827ca39b}{Library.\+IEfecto}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Library/Efecto\+Quemar.\+cs\end{DoxyCompactItemize}

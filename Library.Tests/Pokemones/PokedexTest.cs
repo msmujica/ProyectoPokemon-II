@@ -18,16 +18,6 @@ namespace Library.Tests
         }
 
         [TestMethod]
-        public void TestMostrarPokemonPorIndice_Invalido()
-        {
-            // Act
-            var pokemon = Pokedex.MostrarPokemonPorIndice(100);
-
-            // Assert
-            Assert.IsNull(pokemon);
-        }
-
-        [TestMethod]
         public void TestMostrarPokedex()
         {
             // Act

@@ -1,0 +1,100 @@
+\doxysection{Library.\+Gestor\+Efectos Class Reference}
+\hypertarget{class_library_1_1_gestor_efectos}{}\label{class_library_1_1_gestor_efectos}\index{Library.GestorEfectos@{Library.GestorEfectos}}
+
+
+Gestor que maneja los efectos activos de un Pokémon en combate. Puede aplicar efectos, procesarlos (como daño continuo o estados) y limpiar los efectos. La clase \doxylink{class_library_1_1_gestor_efectos}{Gestor\+Efectos} sigue varios principios de diseño\+: • SRP\+: La clase tiene una única responsabilidad, gestionar los efectos de los Pokémon durante las batallas, como la aplicación, el procesamiento y la limpieza de efectos. No asume otras responsabilidades, como el cálculo de daño o el control de la batalla. • OCP\+: Es fácil extender la funcionalidad de esta clase sin modificarla. Por ejemplo, si deseas agregar nuevos efectos (como efectos de control o efectos de daño), puedes crear nuevas clases que implementen \doxylink{interface_library_1_1_i_efecto}{IEfecto}, y la clase \doxylink{class_library_1_1_gestor_efectos}{Gestor\+Efectos} seguirá funcionando sin necesidad de modificación. • Principio de Expert\+: La clase es experta en la gestión de los efectos activos de los Pokémon. Sabe cómo almacenar, aplicar y procesar efectos, y cómo interactuar con otras clases como \doxylink{class_library_1_1_pokemon}{Pokemon} y \doxylink{interface_library_1_1_i_efecto}{IEfecto} para ejecutar la lógica asociada. • Bajo Acoplamiento\+: La clase interactúa con los efectos a través de la interfaz \doxylink{interface_library_1_1_i_efecto}{IEfecto}, lo que significa que no depende de implementaciones específicas de efectos. Esto permite agregar efectos nuevos sin afectar al resto del sistema, mejorando la modularidad.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_library_1_1_gestor_efectos_a542ba844713a04f40832e402849319f9}{Aplicar\+Efecto}} (\mbox{\hyperlink{interface_library_1_1_i_efecto}{IEfecto}} efecto, \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Aplica un efecto específico a un Pokémon. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_gestor_efectos_a4f382bb804dd567dabf5b9695a07bcd1}{Procesar\+Control\+Masa}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokem)
+\begin{DoxyCompactList}\small\item\em Procesa los efectos que alteran el comportamiento del Pokémon (como dormir o paralizar). \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_gestor_efectos_a5ea52bc344d17f9f6c8273755d34bd10}\label{class_library_1_1_gestor_efectos_a5ea52bc344d17f9f6c8273755d34bd10} 
+void {\bfseries Procesar\+Efectos\+Daño} ()
+\begin{DoxyCompactList}\small\item\em Procesa efectos de daño continuo (como veneno o quemadura) que afectan a la vida del Pokémon. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_library_1_1_gestor_efectos_a5c2e38f0d3ce85319d2611a888fcbc65}{Limpiar\+Efectos}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Limpia todos los efectos activos de un Pokémon. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_gestor_efectos_ae2ceb6020399609945e8e5a636910af9}{Pokemon\+Con\+Efecto}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Verifica si un Pokémon tiene efectos activos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gestor que maneja los efectos activos de un Pokémon en combate. Puede aplicar efectos, procesarlos (como daño continuo o estados) y limpiar los efectos. La clase \doxylink{class_library_1_1_gestor_efectos}{Gestor\+Efectos} sigue varios principios de diseño\+: • SRP\+: La clase tiene una única responsabilidad, gestionar los efectos de los Pokémon durante las batallas, como la aplicación, el procesamiento y la limpieza de efectos. No asume otras responsabilidades, como el cálculo de daño o el control de la batalla. • OCP\+: Es fácil extender la funcionalidad de esta clase sin modificarla. Por ejemplo, si deseas agregar nuevos efectos (como efectos de control o efectos de daño), puedes crear nuevas clases que implementen \doxylink{interface_library_1_1_i_efecto}{IEfecto}, y la clase \doxylink{class_library_1_1_gestor_efectos}{Gestor\+Efectos} seguirá funcionando sin necesidad de modificación. • Principio de Expert\+: La clase es experta en la gestión de los efectos activos de los Pokémon. Sabe cómo almacenar, aplicar y procesar efectos, y cómo interactuar con otras clases como \doxylink{class_library_1_1_pokemon}{Pokemon} y \doxylink{interface_library_1_1_i_efecto}{IEfecto} para ejecutar la lógica asociada. • Bajo Acoplamiento\+: La clase interactúa con los efectos a través de la interfaz \doxylink{interface_library_1_1_i_efecto}{IEfecto}, lo que significa que no depende de implementaciones específicas de efectos. Esto permite agregar efectos nuevos sin afectar al resto del sistema, mejorando la modularidad. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_gestor_efectos_a542ba844713a04f40832e402849319f9}\index{Library.GestorEfectos@{Library.GestorEfectos}!AplicarEfecto@{AplicarEfecto}}
+\index{AplicarEfecto@{AplicarEfecto}!Library.GestorEfectos@{Library.GestorEfectos}}
+\doxysubsubsection{\texorpdfstring{AplicarEfecto()}{AplicarEfecto()}}
+{\footnotesize\ttfamily \label{class_library_1_1_gestor_efectos_a542ba844713a04f40832e402849319f9} 
+void Library.\+Gestor\+Efectos.\+Aplicar\+Efecto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_library_1_1_i_efecto}{IEfecto}}}]{efecto}{, }\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Aplica un efecto específico a un Pokémon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em efecto} & El efecto a aplicar.\\
+\hline
+{\em pokemon} & El Pokémon que recibirá el efecto.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_library_1_1_gestor_efectos_a5c2e38f0d3ce85319d2611a888fcbc65}\index{Library.GestorEfectos@{Library.GestorEfectos}!LimpiarEfectos@{LimpiarEfectos}}
+\index{LimpiarEfectos@{LimpiarEfectos}!Library.GestorEfectos@{Library.GestorEfectos}}
+\doxysubsubsection{\texorpdfstring{LimpiarEfectos()}{LimpiarEfectos()}}
+{\footnotesize\ttfamily \label{class_library_1_1_gestor_efectos_a5c2e38f0d3ce85319d2611a888fcbc65} 
+void Library.\+Gestor\+Efectos.\+Limpiar\+Efectos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Limpia todos los efectos activos de un Pokémon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon cuyo efecto se eliminará.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_library_1_1_gestor_efectos_ae2ceb6020399609945e8e5a636910af9}\index{Library.GestorEfectos@{Library.GestorEfectos}!PokemonConEfecto@{PokemonConEfecto}}
+\index{PokemonConEfecto@{PokemonConEfecto}!Library.GestorEfectos@{Library.GestorEfectos}}
+\doxysubsubsection{\texorpdfstring{PokemonConEfecto()}{PokemonConEfecto()}}
+{\footnotesize\ttfamily \label{class_library_1_1_gestor_efectos_ae2ceb6020399609945e8e5a636910af9} 
+bool Library.\+Gestor\+Efectos.\+Pokemon\+Con\+Efecto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Verifica si un Pokémon tiene efectos activos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon a verificar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si el Pokémon tiene efectos activos, {\ttfamily false} si no.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_gestor_efectos_a4f382bb804dd567dabf5b9695a07bcd1}\index{Library.GestorEfectos@{Library.GestorEfectos}!ProcesarControlMasa@{ProcesarControlMasa}}
+\index{ProcesarControlMasa@{ProcesarControlMasa}!Library.GestorEfectos@{Library.GestorEfectos}}
+\doxysubsubsection{\texorpdfstring{ProcesarControlMasa()}{ProcesarControlMasa()}}
+{\footnotesize\ttfamily \label{class_library_1_1_gestor_efectos_a4f382bb804dd567dabf5b9695a07bcd1} 
+bool Library.\+Gestor\+Efectos.\+Procesar\+Control\+Masa (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokem}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Procesa los efectos que alteran el comportamiento del Pokémon (como dormir o paralizar). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokem} & El Pokémon cuyo estado de efectos se va a procesar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si el efecto sigue activo (por ejemplo, sigue dormido o paralizado). {\ttfamily false} si el efecto ha terminado o no aplica. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Library/Gestor\+Efectos.\+cs\end{DoxyCompactItemize}

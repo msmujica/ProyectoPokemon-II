@@ -1,0 +1,106 @@
+\doxysection{Library.\+Pokemon Class Reference}
+\hypertarget{class_library_1_1_pokemon}{}\label{class_library_1_1_pokemon}\index{Library.Pokemon@{Library.Pokemon}}
+
+
+Clase que representa un Pokémon con nombre, puntos de vida, lista de ataques, tipo y estado de derrota. Permite recibir daño, realizar ataques y gestionar su estado de derrota. La clase \doxylink{class_library_1_1_pokemon}{Pokemon} aplica los siguientes principios\+: • Expert\+: \doxylink{class_library_1_1_pokemon}{Pokemon} gestiona su propia vida, ataques y estado, siguiendo el principio de asignar responsabilidades al experto en la información. • Acoplamiento bajo\+: Utiliza \doxylink{class_library_1_1_gestor_efectos}{Gestor\+Efectos} para manejar efectos adicionales en los ataques, manteniendo bajo el acoplamiento con otras clases. • OCP (Open-\/\+Closed Principle)\+: Permite la extensión con nuevas interfaces y funcionalidades, sin modificar el código existente.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_library_1_1_pokemon_abce048fb9d6ccd68c9d48fb3a3638f6d}{Pokemon}} (string nombre, int vida, List$<$ string $>$ ataques, string tipo)
+\begin{DoxyCompactList}\small\item\em Constructor de la clase Pokémon. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_library_1_1_pokemon_a340898d05c57d50f0e91a5b16002b697}{recibir\+Daño}} (int daño)
+\begin{DoxyCompactList}\small\item\em Método que permite al Pokémon recibir un cierto daño. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_pokemon_a578a988455d984aa07ab14fa29e203f8}{atacar}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} oponente, string ataque, \mbox{\hyperlink{class_library_1_1_gestor_efectos}{Gestor\+Efectos}} gestor\+Efectos)
+\begin{DoxyCompactList}\small\item\em Método que permite al Pokémon realizar un ataque sobre otro Pokémon. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_pokemon_a00c426a1254382d5e08db41affef65db}\label{class_library_1_1_pokemon_a00c426a1254382d5e08db41affef65db} 
+string {\bfseries Nombre}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\Hypertarget{class_library_1_1_pokemon_ac3d176d2dc85e594a5cbe62ab48104e8}\label{class_library_1_1_pokemon_ac3d176d2dc85e594a5cbe62ab48104e8} 
+int {\bfseries Vida}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\Hypertarget{class_library_1_1_pokemon_a5ab8a84cc50e2a0bce40b9f10b6abcd3}\label{class_library_1_1_pokemon_a5ab8a84cc50e2a0bce40b9f10b6abcd3} 
+List$<$ string $>$ {\bfseries Ataques}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\Hypertarget{class_library_1_1_pokemon_ac10bac8f5d497723031033091cf9eb7f}\label{class_library_1_1_pokemon_ac10bac8f5d497723031033091cf9eb7f} 
+string {\bfseries Tipos}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\Hypertarget{class_library_1_1_pokemon_a06755c10d33efe8fccf532e38f7296cc}\label{class_library_1_1_pokemon_a06755c10d33efe8fccf532e38f7296cc} 
+bool {\bfseries Esta\+Derrotado}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase que representa un Pokémon con nombre, puntos de vida, lista de ataques, tipo y estado de derrota. Permite recibir daño, realizar ataques y gestionar su estado de derrota. La clase \doxylink{class_library_1_1_pokemon}{Pokemon} aplica los siguientes principios\+: • Expert\+: \doxylink{class_library_1_1_pokemon}{Pokemon} gestiona su propia vida, ataques y estado, siguiendo el principio de asignar responsabilidades al experto en la información. • Acoplamiento bajo\+: Utiliza \doxylink{class_library_1_1_gestor_efectos}{Gestor\+Efectos} para manejar efectos adicionales en los ataques, manteniendo bajo el acoplamiento con otras clases. • OCP (Open-\/\+Closed Principle)\+: Permite la extensión con nuevas interfaces y funcionalidades, sin modificar el código existente. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_library_1_1_pokemon_abce048fb9d6ccd68c9d48fb3a3638f6d}\index{Library.Pokemon@{Library.Pokemon}!Pokemon@{Pokemon}}
+\index{Pokemon@{Pokemon}!Library.Pokemon@{Library.Pokemon}}
+\doxysubsubsection{\texorpdfstring{Pokemon()}{Pokemon()}}
+{\footnotesize\ttfamily \label{class_library_1_1_pokemon_abce048fb9d6ccd68c9d48fb3a3638f6d} 
+Library.\+Pokemon.\+Pokemon (\begin{DoxyParamCaption}\item[{string}]{nombre}{, }\item[{int}]{vida}{, }\item[{List$<$ string $>$}]{ataques}{, }\item[{string}]{tipo}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor de la clase Pokémon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre} & Nombre del Pokémon.\\
+\hline
+{\em vida} & Puntos de vida iniciales del Pokémon.\\
+\hline
+{\em ataques} & Lista de ataques que puede realizar el Pokémon.\\
+\hline
+{\em tipo} & Tipo o tipos del Pokémon.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_pokemon_a578a988455d984aa07ab14fa29e203f8}\index{Library.Pokemon@{Library.Pokemon}!atacar@{atacar}}
+\index{atacar@{atacar}!Library.Pokemon@{Library.Pokemon}}
+\doxysubsubsection{\texorpdfstring{atacar()}{atacar()}}
+{\footnotesize\ttfamily \label{class_library_1_1_pokemon_a578a988455d984aa07ab14fa29e203f8} 
+string Library.\+Pokemon.\+atacar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{oponente}{, }\item[{string}]{ataque}{, }\item[{\mbox{\hyperlink{class_library_1_1_gestor_efectos}{Gestor\+Efectos}}}]{gestor\+Efectos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Método que permite al Pokémon realizar un ataque sobre otro Pokémon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em oponente} & Pokémon sobre el cual se realizará el ataque.\\
+\hline
+{\em ataque} & Nombre del ataque que se realizará.\\
+\hline
+{\em gestor\+Efectos} & Gestor de efectos para calcular el daño del ataque.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El valor del daño causado al oponente como una cadena.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_pokemon_a340898d05c57d50f0e91a5b16002b697}\index{Library.Pokemon@{Library.Pokemon}!recibirDaño@{recibirDaño}}
+\index{recibirDaño@{recibirDaño}!Library.Pokemon@{Library.Pokemon}}
+\doxysubsubsection{\texorpdfstring{recibirDaño()}{recibirDaño()}}
+{\footnotesize\ttfamily \label{class_library_1_1_pokemon_a340898d05c57d50f0e91a5b16002b697} 
+void Library.\+Pokemon.\+recibir\+Daño (\begin{DoxyParamCaption}\item[{int}]{daño}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Método que permite al Pokémon recibir un cierto daño. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em daño} & Cantidad de daño recibido.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Library/Pokemon.\+cs\end{DoxyCompactItemize}

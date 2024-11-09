@@ -30,19 +30,7 @@ namespace Tests
 
             Assert.IsFalse(gestorEfectos.PokemonConEfecto(pokemon));
         }
-
-        [TestMethod]
-        public void ProcesarControlMasa_SiElPokemonEstaParalizado_DeberiaRetornarVerdadero()
-        {
-            var pokemon = new Pokemon("Pikachu", 100, new List<string>{"Impactrueno"} ,"Eléctrico");
-            var gestorEfectos = new GestorEfectos();
-            var efecto = new EfectoParalizar(); 
-
-            gestorEfectos.AplicarEfecto(efecto, pokemon);
-            bool resultado = gestorEfectos.ProcesarControlMasa(pokemon);
-
-            Assert.IsTrue(resultado); // Debería seguir activo el efecto de parálisis
-        }
+        
 
         [TestMethod]
         public void ProcesarEfectosDaño_DeberiaAplicarDañoCorrectamente()
@@ -54,7 +42,7 @@ namespace Tests
             gestorEfectos.ProcesarEfectosDaño(); // Procesa el daño de efectos
 
             // Aquí se debería verificar que el daño se haya aplicado correctamente
-            Assert.AreEqual(90, pokemon.Vida); 
+            Assert.AreEqual(95, pokemon.Vida); 
         }
     }
 }

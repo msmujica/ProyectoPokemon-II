@@ -1,0 +1,186 @@
+\doxysection{Ucu.\+Poo.\+Discord\+Bot.\+Domain.\+Battle Class Reference}
+\hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle}{}\label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle}\index{Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}}
+
+
+Representa una batalla entre dos entrenadores, gestionando turnos, ataques, cambios de Pokémon y uso de ítems. Esta clase también se encarga de validar las condiciones de victoria y de manejar los efectos de estado durante la batalla. La clase \doxylink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle}{Battle} respeta los siguientes principios\+: • SRP\+: La clase \doxylink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle}{Battle} se encarga solo de gestionar la lógica de la batalla (turnos, ataques, cambios de Pokémon, uso de ítems, y validaciones de victoria), lo que le da una única responsabilidad. • LSP\+: Los entrenadores (Entrenador) y los Pokémon (Pokemon) son objetos que pueden ser sustituidos por sus subclases sin romper la funcionalidad del sistema, lo que permite que diferentes tipos de entrenadores o Pokémon sean intercambiables en la batalla. • ISP\+: Aunque la clase \doxylink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle}{Battle} no implementa interfaces explícitas, sigue la filosofía de ISP al no sobrecargar a otras clases con métodos innecesarios; cada clase se encarga de un conjunto limitado de operaciones. • DIP\+: La clase \doxylink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle}{Battle} depende de abstracciones como Gestor\+Efectos en lugar de clases concretas, lo que facilita la extensión o modificación de la gestión de efectos sin alterar la clase \doxylink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle}{Battle}.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a7d8d014fd078195893d3e6a284ddf77e}{Battle}} (\mbox{\hyperlink{class_library_1_1_entrenador}{Entrenador}} player1, \mbox{\hyperlink{class_library_1_1_entrenador}{Entrenador}} player2)
+\begin{DoxyCompactList}\small\item\em Inicializa una nueva instancia de la clase \doxylink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle}{Battle} con los entrenadores proporcionados. Además, inicializa el gestor de efectos y los ítems de los entrenadores. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a0c0419a149a6419f5f3fa5dc5070fbe2}{validacion\+Pokemon}} ()
+\begin{DoxyCompactList}\small\item\em Valida si ambos jugadores tienen al menos 6 Pokémon en su equipo. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a344b4ccc5c8c196ba7b406294a95e61a}{Validacion\+Win}} ()
+\begin{DoxyCompactList}\small\item\em Valida si el jugador actual ha ganado la batalla. Se considera una victoria cuando todos los Pokémon del oponente tienen vida negativa. \end{DoxyCompactList}\item 
+\Hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a0e7e64c727a1e2e1e113c277cf22b225}\label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a0e7e64c727a1e2e1e113c277cf22b225} 
+void {\bfseries Validacion\+Pokemon} ()
+\begin{DoxyCompactList}\small\item\em Valida el estado de los Pokémon activos de ambos jugadores. Si alguno de los Pokémon está muerto (vida \texorpdfstring{$<$}{<}= 0), se realiza un cambio de Pokémon. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a2f9fc6041179ffee8453824f28ed3448}{Intermediario\+Atacar}} (string opcion\+Ataque)
+\begin{DoxyCompactList}\small\item\em Intermediario para realizar un ataque en la batalla. Valida la acción de atacar, gestiona los efectos de daño y cambia el turno al siguiente jugador. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a83e849c6b8c997088b7dab0b6151e5d1}{Intermediario\+Cambiar\+Pokemon\+Activo}} (int opcion\+Pokemon)
+\begin{DoxyCompactList}\small\item\em Intermediario para cambiar el Pokémon activo durante el turno del jugador. Valida que el índice del Pokémon esté en el rango del equipo y realiza el cambio de Pokémon. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_afc076ccfd552e7219109b29899d9d969}{Intermediario\+Usar\+Item}} (int opcion\+Pokemon, string opcion\+Item)
+\begin{DoxyCompactList}\small\item\em Intermediario para usar un ítem en el Pokémon activo durante la batalla. Valida el índice del Pokémon y aplica el ítem seleccionado. \end{DoxyCompactList}\item 
+\Hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a5284c6dbe547bb1dc6d3a34c1a037b33}\label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a5284c6dbe547bb1dc6d3a34c1a037b33} 
+void {\bfseries Cambiar\+Turno} ()
+\begin{DoxyCompactList}\small\item\em Cambia el turno entre los dos jugadores. Resetea el estado de acción y determina quién es el siguiente jugador. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} $>$ \mbox{\hyperlink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a1de3ed2ba7fa168fe019cb3db4dc3c63}{Mostrar\+Pokemon\+Enemigo}} ()
+\begin{DoxyCompactList}\small\item\em Muestra los Pokémon del jugador contrario (el que está en turno pasado). \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a04e0b38be817e424eaa9c18d762b82d1}{Win}} ()
+\begin{DoxyCompactList}\small\item\em Muestra el mensaje de victoria cuando el jugador actual gana la batalla. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a5074e62dc173483cf80f5bf97fa40253}\label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a5074e62dc173483cf80f5bf97fa40253} 
+\mbox{\hyperlink{class_library_1_1_entrenador}{Entrenador}} {\bfseries Player1}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene un valor que representa el primer jugador. \end{DoxyCompactList}\item 
+\Hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_ad87261c07220ea6dd0db18e955b1763f}\label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_ad87261c07220ea6dd0db18e955b1763f} 
+\mbox{\hyperlink{class_library_1_1_entrenador}{Entrenador}} {\bfseries Player2}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene un valor que representa al oponente. \end{DoxyCompactList}\item 
+\Hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a6c37777453727d2ca22acd0c0ec4cde5}\label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a6c37777453727d2ca22acd0c0ec4cde5} 
+\mbox{\hyperlink{class_library_1_1_entrenador}{Entrenador}} {\bfseries Turno\+Actual}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece el jugador que está actuando en el turno actual. \end{DoxyCompactList}\item 
+\Hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_abe0d9214f0d48f87ad90e2b8e046fa94}\label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_abe0d9214f0d48f87ad90e2b8e046fa94} 
+\mbox{\hyperlink{class_library_1_1_entrenador}{Entrenador}} {\bfseries Turno\+Pasado}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Obtiene o establece el jugador que está esperando en el turno pasado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa una batalla entre dos entrenadores, gestionando turnos, ataques, cambios de Pokémon y uso de ítems. Esta clase también se encarga de validar las condiciones de victoria y de manejar los efectos de estado durante la batalla. La clase \doxylink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle}{Battle} respeta los siguientes principios\+: • SRP\+: La clase \doxylink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle}{Battle} se encarga solo de gestionar la lógica de la batalla (turnos, ataques, cambios de Pokémon, uso de ítems, y validaciones de victoria), lo que le da una única responsabilidad. • LSP\+: Los entrenadores (Entrenador) y los Pokémon (Pokemon) son objetos que pueden ser sustituidos por sus subclases sin romper la funcionalidad del sistema, lo que permite que diferentes tipos de entrenadores o Pokémon sean intercambiables en la batalla. • ISP\+: Aunque la clase \doxylink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle}{Battle} no implementa interfaces explícitas, sigue la filosofía de ISP al no sobrecargar a otras clases con métodos innecesarios; cada clase se encarga de un conjunto limitado de operaciones. • DIP\+: La clase \doxylink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle}{Battle} depende de abstracciones como Gestor\+Efectos en lugar de clases concretas, lo que facilita la extensión o modificación de la gestión de efectos sin alterar la clase \doxylink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle}{Battle}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a7d8d014fd078195893d3e6a284ddf77e}\index{Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}!Battle@{Battle}}
+\index{Battle@{Battle}!Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}}
+\doxysubsubsection{\texorpdfstring{Battle()}{Battle()}}
+{\footnotesize\ttfamily \label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a7d8d014fd078195893d3e6a284ddf77e} 
+Ucu.\+Poo.\+Discord\+Bot.\+Domain.\+Battle.\+Battle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_entrenador}{Entrenador}}}]{player1}{, }\item[{\mbox{\hyperlink{class_library_1_1_entrenador}{Entrenador}}}]{player2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa una nueva instancia de la clase \doxylink{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle}{Battle} con los entrenadores proporcionados. Además, inicializa el gestor de efectos y los ítems de los entrenadores. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player1} & El primer jugador (entrenador).\\
+\hline
+{\em player2} & El segundo jugador (oponente).\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a2f9fc6041179ffee8453824f28ed3448}\index{Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}!IntermediarioAtacar@{IntermediarioAtacar}}
+\index{IntermediarioAtacar@{IntermediarioAtacar}!Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}}
+\doxysubsubsection{\texorpdfstring{IntermediarioAtacar()}{IntermediarioAtacar()}}
+{\footnotesize\ttfamily \label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a2f9fc6041179ffee8453824f28ed3448} 
+string Ucu.\+Poo.\+Discord\+Bot.\+Domain.\+Battle.\+Intermediario\+Atacar (\begin{DoxyParamCaption}\item[{string}]{opcion\+Ataque}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Intermediario para realizar un ataque en la batalla. Valida la acción de atacar, gestiona los efectos de daño y cambia el turno al siguiente jugador. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em opcion\+Ataque} & El nombre del ataque seleccionado por el jugador.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Mensaje que describe el resultado de realizar el ataque.
+\end{DoxyReturn}
+\Hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a83e849c6b8c997088b7dab0b6151e5d1}\index{Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}!IntermediarioCambiarPokemonActivo@{IntermediarioCambiarPokemonActivo}}
+\index{IntermediarioCambiarPokemonActivo@{IntermediarioCambiarPokemonActivo}!Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}}
+\doxysubsubsection{\texorpdfstring{IntermediarioCambiarPokemonActivo()}{IntermediarioCambiarPokemonActivo()}}
+{\footnotesize\ttfamily \label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a83e849c6b8c997088b7dab0b6151e5d1} 
+string Ucu.\+Poo.\+Discord\+Bot.\+Domain.\+Battle.\+Intermediario\+Cambiar\+Pokemon\+Activo (\begin{DoxyParamCaption}\item[{int}]{opcion\+Pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Intermediario para cambiar el Pokémon activo durante el turno del jugador. Valida que el índice del Pokémon esté en el rango del equipo y realiza el cambio de Pokémon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em opcion\+Pokemon} & Índice del Pokémon seleccionado para ser el nuevo activo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Mensaje que describe el resultado del cambio de Pokémon.
+\end{DoxyReturn}
+\Hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_afc076ccfd552e7219109b29899d9d969}\index{Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}!IntermediarioUsarItem@{IntermediarioUsarItem}}
+\index{IntermediarioUsarItem@{IntermediarioUsarItem}!Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}}
+\doxysubsubsection{\texorpdfstring{IntermediarioUsarItem()}{IntermediarioUsarItem()}}
+{\footnotesize\ttfamily \label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_afc076ccfd552e7219109b29899d9d969} 
+string Ucu.\+Poo.\+Discord\+Bot.\+Domain.\+Battle.\+Intermediario\+Usar\+Item (\begin{DoxyParamCaption}\item[{int}]{opcion\+Pokemon}{, }\item[{string}]{opcion\+Item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Intermediario para usar un ítem en el Pokémon activo durante la batalla. Valida el índice del Pokémon y aplica el ítem seleccionado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em opcion\+Pokemon} & Índice del Pokémon sobre el que se aplicará el ítem.\\
+\hline
+{\em opcion\+Item} & Nombre del ítem a usar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Mensaje que describe el resultado del uso del ítem.
+\end{DoxyReturn}
+\Hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a1de3ed2ba7fa168fe019cb3db4dc3c63}\index{Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}!MostrarPokemonEnemigo@{MostrarPokemonEnemigo}}
+\index{MostrarPokemonEnemigo@{MostrarPokemonEnemigo}!Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}}
+\doxysubsubsection{\texorpdfstring{MostrarPokemonEnemigo()}{MostrarPokemonEnemigo()}}
+{\footnotesize\ttfamily \label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a1de3ed2ba7fa168fe019cb3db4dc3c63} 
+List$<$ \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} $>$ Ucu.\+Poo.\+Discord\+Bot.\+Domain.\+Battle.\+Mostrar\+Pokemon\+Enemigo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra los Pokémon del jugador contrario (el que está en turno pasado). 
+
+\begin{DoxyReturn}{Returns}
+Lista de los Pokémon del oponente.
+\end{DoxyReturn}
+\Hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a0c0419a149a6419f5f3fa5dc5070fbe2}\index{Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}!validacionPokemon@{validacionPokemon}}
+\index{validacionPokemon@{validacionPokemon}!Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}}
+\doxysubsubsection{\texorpdfstring{validacionPokemon()}{validacionPokemon()}}
+{\footnotesize\ttfamily \label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a0c0419a149a6419f5f3fa5dc5070fbe2} 
+bool Ucu.\+Poo.\+Discord\+Bot.\+Domain.\+Battle.\+validacion\+Pokemon (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Valida si ambos jugadores tienen al menos 6 Pokémon en su equipo. 
+
+\begin{DoxyReturn}{Returns}
+Devuelve {\ttfamily true} si algún jugador tiene menos de 6 Pokémon, de lo contrario {\ttfamily false}.
+\end{DoxyReturn}
+\Hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a344b4ccc5c8c196ba7b406294a95e61a}\index{Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}!ValidacionWin@{ValidacionWin}}
+\index{ValidacionWin@{ValidacionWin}!Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}}
+\doxysubsubsection{\texorpdfstring{ValidacionWin()}{ValidacionWin()}}
+{\footnotesize\ttfamily \label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a344b4ccc5c8c196ba7b406294a95e61a} 
+bool Ucu.\+Poo.\+Discord\+Bot.\+Domain.\+Battle.\+Validacion\+Win (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Valida si el jugador actual ha ganado la batalla. Se considera una victoria cuando todos los Pokémon del oponente tienen vida negativa. 
+
+\begin{DoxyReturn}{Returns}
+Devuelve {\ttfamily true} si el jugador ha ganado la batalla.
+\end{DoxyReturn}
+\Hypertarget{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a04e0b38be817e424eaa9c18d762b82d1}\index{Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}!Win@{Win}}
+\index{Win@{Win}!Ucu.Poo.DiscordBot.Domain.Battle@{Ucu.Poo.DiscordBot.Domain.Battle}}
+\doxysubsubsection{\texorpdfstring{Win()}{Win()}}
+{\footnotesize\ttfamily \label{class_ucu_1_1_poo_1_1_discord_bot_1_1_domain_1_1_battle_a04e0b38be817e424eaa9c18d762b82d1} 
+string Ucu.\+Poo.\+Discord\+Bot.\+Domain.\+Battle.\+Win (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Muestra el mensaje de victoria cuando el jugador actual gana la batalla. 
+
+\begin{DoxyReturn}{Returns}
+Mensaje indicando que el jugador actual ha ganado.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Library/Battle.\+cs\end{DoxyCompactItemize}

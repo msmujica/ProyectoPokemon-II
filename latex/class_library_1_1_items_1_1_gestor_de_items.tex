@@ -1,0 +1,89 @@
+\doxysection{Library.\+Items.\+Gestor\+De\+Items Class Reference}
+\hypertarget{class_library_1_1_items_1_1_gestor_de_items}{}\label{class_library_1_1_items_1_1_gestor_de_items}\index{Library.Items.GestorDeItems@{Library.Items.GestorDeItems}}
+
+
+Esta clase gestiona el uso de objetos de curación y revivir en los Pokémon durante la batalla. La clase \doxylink{class_library_1_1_items_1_1_gestor_de_items}{Gestor\+De\+Items} aplica los siguientes principios\+: • SRP\+: \doxylink{class_library_1_1_items_1_1_gestor_de_items}{Gestor\+De\+Items} tiene una única responsabilidad, que es gestionar el uso de ítems en la batalla. • OCP\+: Permite agregar nuevos tipos de ítems sin modificar el código existente, facilitando la extensión. • Principio de Expert\+: \doxylink{class_library_1_1_items_1_1_gestor_de_items}{Gestor\+De\+Items} conoce y gestiona la lógica de los ítems, por lo que es el experto en esta funcionalidad. • Acoplamiento bajo\+: Usa \doxylink{class_library_1_1_gestor_efectos}{Gestor\+Efectos} para manejar los efectos negativos, reduciendo la dependencia entre clases.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_library_1_1_items_1_1_gestor_de_items_a6f6946cd3504d10b3a631dd0d03d42d2}{Usar\+Super\+Pocion}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon, int contador\+Super\+Pocion)
+\begin{DoxyCompactList}\small\item\em Usa una Super\+Poción en un Pokémon, restaurando su vida hasta un máximo de 100. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_items_1_1_gestor_de_items_a71db15a8f93c269260e52dd08bc121e7}{Usar\+Revivir}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon, int contador\+Revivir)
+\begin{DoxyCompactList}\small\item\em Usa un Revivir para resucitar a un Pokémon derrotado, restaurándole 50\% de vida. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_items_1_1_gestor_de_items_ab6f55fb6b102e8afba17e08ba109add1}{Usar\+Cura\+Total}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon, int contador\+Cura\+Total, \mbox{\hyperlink{class_library_1_1_gestor_efectos}{Gestor\+Efectos}} gestor\+Efectos)
+\begin{DoxyCompactList}\small\item\em Usa una Cura Total para restaurar la vida de un Pokémon al 100\% y eliminar cualquier efecto negativo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Esta clase gestiona el uso de objetos de curación y revivir en los Pokémon durante la batalla. La clase \doxylink{class_library_1_1_items_1_1_gestor_de_items}{Gestor\+De\+Items} aplica los siguientes principios\+: • SRP\+: \doxylink{class_library_1_1_items_1_1_gestor_de_items}{Gestor\+De\+Items} tiene una única responsabilidad, que es gestionar el uso de ítems en la batalla. • OCP\+: Permite agregar nuevos tipos de ítems sin modificar el código existente, facilitando la extensión. • Principio de Expert\+: \doxylink{class_library_1_1_items_1_1_gestor_de_items}{Gestor\+De\+Items} conoce y gestiona la lógica de los ítems, por lo que es el experto en esta funcionalidad. • Acoplamiento bajo\+: Usa \doxylink{class_library_1_1_gestor_efectos}{Gestor\+Efectos} para manejar los efectos negativos, reduciendo la dependencia entre clases. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_items_1_1_gestor_de_items_ab6f55fb6b102e8afba17e08ba109add1}\index{Library.Items.GestorDeItems@{Library.Items.GestorDeItems}!UsarCuraTotal@{UsarCuraTotal}}
+\index{UsarCuraTotal@{UsarCuraTotal}!Library.Items.GestorDeItems@{Library.Items.GestorDeItems}}
+\doxysubsubsection{\texorpdfstring{UsarCuraTotal()}{UsarCuraTotal()}}
+{\footnotesize\ttfamily \label{class_library_1_1_items_1_1_gestor_de_items_ab6f55fb6b102e8afba17e08ba109add1} 
+string Library.\+Items.\+Gestor\+De\+Items.\+Usar\+Cura\+Total (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{, }\item[{int}]{contador\+Cura\+Total}{, }\item[{\mbox{\hyperlink{class_library_1_1_gestor_efectos}{Gestor\+Efectos}}}]{gestor\+Efectos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Usa una Cura Total para restaurar la vida de un Pokémon al 100\% y eliminar cualquier efecto negativo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon al que se le aplicará la Cura Total.\\
+\hline
+{\em contador\+Cura\+Total} & El número de Curaciones Totales disponibles.\\
+\hline
+{\em gestor\+Efectos} & El gestor de efectos que se usará para limpiar efectos negativos.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un mensaje indicando el resultado de usar la Cura Total.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_items_1_1_gestor_de_items_a71db15a8f93c269260e52dd08bc121e7}\index{Library.Items.GestorDeItems@{Library.Items.GestorDeItems}!UsarRevivir@{UsarRevivir}}
+\index{UsarRevivir@{UsarRevivir}!Library.Items.GestorDeItems@{Library.Items.GestorDeItems}}
+\doxysubsubsection{\texorpdfstring{UsarRevivir()}{UsarRevivir()}}
+{\footnotesize\ttfamily \label{class_library_1_1_items_1_1_gestor_de_items_a71db15a8f93c269260e52dd08bc121e7} 
+string Library.\+Items.\+Gestor\+De\+Items.\+Usar\+Revivir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{, }\item[{int}]{contador\+Revivir}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Usa un Revivir para resucitar a un Pokémon derrotado, restaurándole 50\% de vida. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon que se revivirá.\\
+\hline
+{\em contador\+Revivir} & El número de Revivir disponibles.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un mensaje indicando el resultado de usar el Revivir.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_items_1_1_gestor_de_items_a6f6946cd3504d10b3a631dd0d03d42d2}\index{Library.Items.GestorDeItems@{Library.Items.GestorDeItems}!UsarSuperPocion@{UsarSuperPocion}}
+\index{UsarSuperPocion@{UsarSuperPocion}!Library.Items.GestorDeItems@{Library.Items.GestorDeItems}}
+\doxysubsubsection{\texorpdfstring{UsarSuperPocion()}{UsarSuperPocion()}}
+{\footnotesize\ttfamily \label{class_library_1_1_items_1_1_gestor_de_items_a6f6946cd3504d10b3a631dd0d03d42d2} 
+string Library.\+Items.\+Gestor\+De\+Items.\+Usar\+Super\+Pocion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{, }\item[{int}]{contador\+Super\+Pocion}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Usa una Super\+Poción en un Pokémon, restaurando su vida hasta un máximo de 100. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon al que se le aplicará la Super\+Poción.\\
+\hline
+{\em contador\+Super\+Pocion} & El número de Super\+Pociones disponibles.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un mensaje indicando el resultado de usar la Super\+Poción.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Library/Gestorde\+Items.\+cs\end{DoxyCompactItemize}

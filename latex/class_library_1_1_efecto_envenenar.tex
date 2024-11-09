@@ -1,0 +1,72 @@
+\doxysection{Library.\+Efecto\+Envenenar Class Reference}
+\hypertarget{class_library_1_1_efecto_envenenar}{}\label{class_library_1_1_efecto_envenenar}\index{Library.EfectoEnvenenar@{Library.EfectoEnvenenar}}
+
+
+Clase que representa el efecto de "{}envenenar"{} a un Pokémon. Un Pokémon envenenado pierde una cierta cantidad de vida por cada turno que pasa.  
+
+
+Inheritance diagram for Library.\+Efecto\+Envenenar\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_library_1_1_efecto_envenenar}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_library_1_1_efecto_envenenar_a6aca2f0862a861bdc126549e9a5dd8f6}{Iniciar\+Efecto}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Inicia el efecto de "{}envenenar"{} en el Pokémon. Este efecto causará daño periódico a la vida del Pokémon. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_efecto_envenenar_a9d71a154b1e6bac5cbce792ff1e8de0c}{Procesar\+Efecto}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Procesa el efecto de "{}envenenar"{} durante cada turno del Pokémon afectado. Cada vez que se llama, el Pokémon pierde un porcentaje de su vida debido al veneno. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase que representa el efecto de "{}envenenar"{} a un Pokémon. Un Pokémon envenenado pierde una cierta cantidad de vida por cada turno que pasa. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_efecto_envenenar_a6aca2f0862a861bdc126549e9a5dd8f6}\index{Library.EfectoEnvenenar@{Library.EfectoEnvenenar}!IniciarEfecto@{IniciarEfecto}}
+\index{IniciarEfecto@{IniciarEfecto}!Library.EfectoEnvenenar@{Library.EfectoEnvenenar}}
+\doxysubsubsection{\texorpdfstring{IniciarEfecto()}{IniciarEfecto()}}
+{\footnotesize\ttfamily \label{class_library_1_1_efecto_envenenar_a6aca2f0862a861bdc126549e9a5dd8f6} 
+void Library.\+Efecto\+Envenenar.\+Iniciar\+Efecto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicia el efecto de "{}envenenar"{} en el Pokémon. Este efecto causará daño periódico a la vida del Pokémon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon que será envenenado.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_efecto_abb00ba77fb8e361cbd476d94df5f050b}{Library.\+IEfecto}}.
+
+\Hypertarget{class_library_1_1_efecto_envenenar_a9d71a154b1e6bac5cbce792ff1e8de0c}\index{Library.EfectoEnvenenar@{Library.EfectoEnvenenar}!ProcesarEfecto@{ProcesarEfecto}}
+\index{ProcesarEfecto@{ProcesarEfecto}!Library.EfectoEnvenenar@{Library.EfectoEnvenenar}}
+\doxysubsubsection{\texorpdfstring{ProcesarEfecto()}{ProcesarEfecto()}}
+{\footnotesize\ttfamily \label{class_library_1_1_efecto_envenenar_a9d71a154b1e6bac5cbce792ff1e8de0c} 
+bool Library.\+Efecto\+Envenenar.\+Procesar\+Efecto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Procesa el efecto de "{}envenenar"{} durante cada turno del Pokémon afectado. Cada vez que se llama, el Pokémon pierde un porcentaje de su vida debido al veneno. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon que está bajo el efecto de veneno.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si el efecto sigue activo (es decir, el Pokémon no ha muerto debido al veneno). {\ttfamily false} si el efecto ha terminado (es decir, el Pokémon ha quedado fuera de combate por el veneno). 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_efecto_a290b54e877cd0802534285d9827ca39b}{Library.\+IEfecto}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Library/Efecto\+Envenenar.\+cs\end{DoxyCompactItemize}

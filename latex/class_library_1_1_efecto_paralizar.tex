@@ -1,0 +1,72 @@
+\doxysection{Library.\+Efecto\+Paralizar Class Reference}
+\hypertarget{class_library_1_1_efecto_paralizar}{}\label{class_library_1_1_efecto_paralizar}\index{Library.EfectoParalizar@{Library.EfectoParalizar}}
+
+
+Clase que representa el efecto de "{}paralizar"{} a un Pokémon. Un Pokémon paralizado tiene un 30\% de probabilidad de no poder atacar en cada turno.  
+
+
+Inheritance diagram for Library.\+Efecto\+Paralizar\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_library_1_1_efecto_paralizar}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_library_1_1_efecto_paralizar_ad124cdc08acd9897b9eaed024327a072}{Iniciar\+Efecto}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Inicia el efecto de "{}paralizar"{} en el Pokémon. Este efecto impide que el Pokémon pueda atacar con una probabilidad. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_efecto_paralizar_a823609c99f4ce9e731586b61b122411a}{Procesar\+Efecto}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Procesa el efecto de la parálisis en el turno de un Pokémon. Determina si el Pokémon puede o no atacar en el turno actual debido a la parálisis. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase que representa el efecto de "{}paralizar"{} a un Pokémon. Un Pokémon paralizado tiene un 30\% de probabilidad de no poder atacar en cada turno. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_efecto_paralizar_ad124cdc08acd9897b9eaed024327a072}\index{Library.EfectoParalizar@{Library.EfectoParalizar}!IniciarEfecto@{IniciarEfecto}}
+\index{IniciarEfecto@{IniciarEfecto}!Library.EfectoParalizar@{Library.EfectoParalizar}}
+\doxysubsubsection{\texorpdfstring{IniciarEfecto()}{IniciarEfecto()}}
+{\footnotesize\ttfamily \label{class_library_1_1_efecto_paralizar_ad124cdc08acd9897b9eaed024327a072} 
+void Library.\+Efecto\+Paralizar.\+Iniciar\+Efecto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicia el efecto de "{}paralizar"{} en el Pokémon. Este efecto impide que el Pokémon pueda atacar con una probabilidad. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon que será paralizado.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_efecto_abb00ba77fb8e361cbd476d94df5f050b}{Library.\+IEfecto}}.
+
+\Hypertarget{class_library_1_1_efecto_paralizar_a823609c99f4ce9e731586b61b122411a}\index{Library.EfectoParalizar@{Library.EfectoParalizar}!ProcesarEfecto@{ProcesarEfecto}}
+\index{ProcesarEfecto@{ProcesarEfecto}!Library.EfectoParalizar@{Library.EfectoParalizar}}
+\doxysubsubsection{\texorpdfstring{ProcesarEfecto()}{ProcesarEfecto()}}
+{\footnotesize\ttfamily \label{class_library_1_1_efecto_paralizar_a823609c99f4ce9e731586b61b122411a} 
+bool Library.\+Efecto\+Paralizar.\+Procesar\+Efecto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Procesa el efecto de la parálisis en el turno de un Pokémon. Determina si el Pokémon puede o no atacar en el turno actual debido a la parálisis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon que está bajo el efecto de parálisis.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si el efecto sigue activo (es decir, el Pokémon no ha atacado debido a la parálisis). {\ttfamily false} si el Pokémon ha superado la parálisis y puede atacar. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_efecto_a290b54e877cd0802534285d9827ca39b}{Library.\+IEfecto}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Library/Efecto\+Paralizar.\+cs\end{DoxyCompactItemize}

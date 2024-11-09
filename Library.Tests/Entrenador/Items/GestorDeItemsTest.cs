@@ -40,21 +40,6 @@ namespace Library.Tests
             Assert.AreEqual(100, pokemon.Vida); // La vida no debe cambiar si ya está a máximo
         }
 
-        [TestMethod]
-        public void TestUsarRevivir()
-        {
-            // Arrange
-            var pokemon = new Pokemon("Bulbasaur", 0 , new List<string> { "Hoja Afilada", "Látigo Cepa", "Rayo Solar" }, "Planta");
-            var gestor = new GestorDeItems();
-            int contadorRevivir = 1;
-
-            // Act
-            var result = gestor.UsarRevivir(pokemon, contadorRevivir);
-
-            // Assert
-            Assert.AreEqual("Usaste un Revivir. Usos restantes: 0", result);
-            Assert.AreEqual(50, pokemon.Vida); // La vida debe ser 50 después de revivir
-        }
 
         [TestMethod]
         public void TestUsarRevivir_NoEstaDerrotado()

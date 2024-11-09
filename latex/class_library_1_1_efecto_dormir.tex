@@ -1,0 +1,72 @@
+\doxysection{Library.\+Efecto\+Dormir Class Reference}
+\hypertarget{class_library_1_1_efecto_dormir}{}\label{class_library_1_1_efecto_dormir}\index{Library.EfectoDormir@{Library.EfectoDormir}}
+
+
+Clase que representa el efecto de "{}dormir"{} aplicado a un Pokémon. Cuando un Pokémon está dormido, pierde turnos y no puede actuar hasta que despierte.  
+
+
+Inheritance diagram for Library.\+Efecto\+Dormir\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_library_1_1_efecto_dormir}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_library_1_1_efecto_dormir_a2a3ac073885eeeedbcefcaab7918ff14}{Iniciar\+Efecto}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Inicia el efecto de "{}dormir"{} en un Pokémon. El Pokémon será dormido por un número aleatorio de turnos entre 1 y 4. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_library_1_1_efecto_dormir_a322c11d66a5ffd988855c69cb80886e3}{Procesar\+Efecto}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Procesa el efecto de "{}dormir"{} durante cada turno del Pokémon afectado. Cada vez que se llama, reduce los turnos restantes de sueño. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase que representa el efecto de "{}dormir"{} aplicado a un Pokémon. Cuando un Pokémon está dormido, pierde turnos y no puede actuar hasta que despierte. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_efecto_dormir_a2a3ac073885eeeedbcefcaab7918ff14}\index{Library.EfectoDormir@{Library.EfectoDormir}!IniciarEfecto@{IniciarEfecto}}
+\index{IniciarEfecto@{IniciarEfecto}!Library.EfectoDormir@{Library.EfectoDormir}}
+\doxysubsubsection{\texorpdfstring{IniciarEfecto()}{IniciarEfecto()}}
+{\footnotesize\ttfamily \label{class_library_1_1_efecto_dormir_a2a3ac073885eeeedbcefcaab7918ff14} 
+void Library.\+Efecto\+Dormir.\+Iniciar\+Efecto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicia el efecto de "{}dormir"{} en un Pokémon. El Pokémon será dormido por un número aleatorio de turnos entre 1 y 4. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon que será afectado por el sueño.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_efecto_abb00ba77fb8e361cbd476d94df5f050b}{Library.\+IEfecto}}.
+
+\Hypertarget{class_library_1_1_efecto_dormir_a322c11d66a5ffd988855c69cb80886e3}\index{Library.EfectoDormir@{Library.EfectoDormir}!ProcesarEfecto@{ProcesarEfecto}}
+\index{ProcesarEfecto@{ProcesarEfecto}!Library.EfectoDormir@{Library.EfectoDormir}}
+\doxysubsubsection{\texorpdfstring{ProcesarEfecto()}{ProcesarEfecto()}}
+{\footnotesize\ttfamily \label{class_library_1_1_efecto_dormir_a322c11d66a5ffd988855c69cb80886e3} 
+bool Library.\+Efecto\+Dormir.\+Procesar\+Efecto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Procesa el efecto de "{}dormir"{} durante cada turno del Pokémon afectado. Cada vez que se llama, reduce los turnos restantes de sueño. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon que está bajo el efecto del sueño.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} si el efecto sigue activo (es decir, el Pokémon sigue dormido). {\ttfamily false} si el efecto ha terminado (es decir, el Pokémon ha despertado). 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_library_1_1_i_efecto_a290b54e877cd0802534285d9827ca39b}{Library.\+IEfecto}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Library/Efecto\+Dormir.\+cs\end{DoxyCompactItemize}

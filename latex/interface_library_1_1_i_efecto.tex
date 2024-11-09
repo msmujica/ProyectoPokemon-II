@@ -1,0 +1,72 @@
+\doxysection{Library.\+IEfecto Interface Reference}
+\hypertarget{interface_library_1_1_i_efecto}{}\label{interface_library_1_1_i_efecto}\index{Library.IEfecto@{Library.IEfecto}}
+
+
+Interfaz que define la estructura básica para los efectos especiales que pueden aplicarse a un Pokémon durante una batalla. Cada efecto debe ser capaz de iniciar su acción y procesar sus efectos de manera periódica.  
+
+
+Inheritance diagram for Library.\+IEfecto\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.717791cm]{interface_library_1_1_i_efecto}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{interface_library_1_1_i_efecto_abb00ba77fb8e361cbd476d94df5f050b}{Iniciar\+Efecto}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Inicia el efecto sobre un Pokémon. Este método debe definir cómo el efecto afecta al Pokémon al momento de ser aplicado, como cambiar su estado o estadísticas. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{interface_library_1_1_i_efecto_a290b54e877cd0802534285d9827ca39b}{Procesar\+Efecto}} (\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon)
+\begin{DoxyCompactList}\small\item\em Procesa el efecto sobre un Pokémon. Este método es responsable de actualizar el estado del Pokémon en función de la duración o los efectos adicionales que el efecto pueda tener con el tiempo (por ejemplo, daño por veneno o parálisis). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interfaz que define la estructura básica para los efectos especiales que pueden aplicarse a un Pokémon durante una batalla. Cada efecto debe ser capaz de iniciar su acción y procesar sus efectos de manera periódica. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{interface_library_1_1_i_efecto_abb00ba77fb8e361cbd476d94df5f050b}\index{Library.IEfecto@{Library.IEfecto}!IniciarEfecto@{IniciarEfecto}}
+\index{IniciarEfecto@{IniciarEfecto}!Library.IEfecto@{Library.IEfecto}}
+\doxysubsubsection{\texorpdfstring{IniciarEfecto()}{IniciarEfecto()}}
+{\footnotesize\ttfamily \label{interface_library_1_1_i_efecto_abb00ba77fb8e361cbd476d94df5f050b} 
+void Library.\+IEfecto.\+Iniciar\+Efecto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})}
+
+
+
+Inicia el efecto sobre un Pokémon. Este método debe definir cómo el efecto afecta al Pokémon al momento de ser aplicado, como cambiar su estado o estadísticas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon al que se le va a aplicar el efecto.\\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_library_1_1_efecto_dormir_a2a3ac073885eeeedbcefcaab7918ff14}{Library.\+Efecto\+Dormir}}, \mbox{\hyperlink{class_library_1_1_efecto_envenenar_a6aca2f0862a861bdc126549e9a5dd8f6}{Library.\+Efecto\+Envenenar}}, \mbox{\hyperlink{class_library_1_1_efecto_paralizar_ad124cdc08acd9897b9eaed024327a072}{Library.\+Efecto\+Paralizar}}, and \mbox{\hyperlink{class_library_1_1_efecto_quemar_a33409f7f16ea77cb5fa494aafa73231e}{Library.\+Efecto\+Quemar}}.
+
+\Hypertarget{interface_library_1_1_i_efecto_a290b54e877cd0802534285d9827ca39b}\index{Library.IEfecto@{Library.IEfecto}!ProcesarEfecto@{ProcesarEfecto}}
+\index{ProcesarEfecto@{ProcesarEfecto}!Library.IEfecto@{Library.IEfecto}}
+\doxysubsubsection{\texorpdfstring{ProcesarEfecto()}{ProcesarEfecto()}}
+{\footnotesize\ttfamily \label{interface_library_1_1_i_efecto_a290b54e877cd0802534285d9827ca39b} 
+bool Library.\+IEfecto.\+Procesar\+Efecto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{}\end{DoxyParamCaption})}
+
+
+
+Procesa el efecto sobre un Pokémon. Este método es responsable de actualizar el estado del Pokémon en función de la duración o los efectos adicionales que el efecto pueda tener con el tiempo (por ejemplo, daño por veneno o parálisis). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pokemon} & El Pokémon sobre el cual se procesará el efecto.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un valor booleano que indica si el efecto sigue activo o si ha terminado.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_library_1_1_efecto_dormir_a322c11d66a5ffd988855c69cb80886e3}{Library.\+Efecto\+Dormir}}, \mbox{\hyperlink{class_library_1_1_efecto_envenenar_a9d71a154b1e6bac5cbce792ff1e8de0c}{Library.\+Efecto\+Envenenar}}, \mbox{\hyperlink{class_library_1_1_efecto_paralizar_a823609c99f4ce9e731586b61b122411a}{Library.\+Efecto\+Paralizar}}, and \mbox{\hyperlink{class_library_1_1_efecto_quemar_a464b79b03e588c899a95975ebec78c91}{Library.\+Efecto\+Quemar}}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Library/IEfecto.\+cs\end{DoxyCompactItemize}

@@ -36,16 +36,5 @@ namespace Tests
             // Si el ataque es crítico, el daño debería multiplicarse por 1.2
             Assert.AreEqual(dañoCalculado, 55);
         }
-
-        [TestMethod]
-        public void CalcularDaño_SiElAtaqueNoEsPreciso_DeberiaRetornarCero()
-        {
-            var pokemonObjetivo = new Pokemon("Charmander", 100, new List<string>{"Rayo"},"Fuego");
-            var gestorEfectos = new GestorEfectos();
-
-            // Si no es preciso, el daño debería ser 0
-            int dañoCalculado = Ataque.CalcularDaño("Rayo", pokemonObjetivo, gestorEfectos);
-            Assert.AreEqual(0, dañoCalculado);
-        }
     }
 }

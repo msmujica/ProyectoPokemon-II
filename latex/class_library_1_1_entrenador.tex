@@ -1,0 +1,159 @@
+\doxysection{Library.\+Entrenador Class Reference}
+\hypertarget{class_library_1_1_entrenador}{}\label{class_library_1_1_entrenador}\index{Library.Entrenador@{Library.Entrenador}}
+
+
+Esta clase representa un entrenador que participa en batallas de Pokémon. El entrenador tiene un equipo de Pokémon, uno activo y puede usar ítems durante la batalla. La clase \doxylink{class_library_1_1_entrenador}{Entrenador} aplica los siguientes principios\+: • SRP\+: Centraliza la gestión del equipo de Pokémon y el uso de ítems, manteniendo responsabilidades claras y específicas. • Expert\+: \doxylink{class_library_1_1_entrenador}{Entrenador} conoce y gestiona toda la información necesaria sobre su equipo y los ítems, consolidando las responsabilidades de su rol. • Low Coupling\+: Limita el acoplamiento al delegar los efectos especiales en otras clases, manteniéndose independiente de sus implementaciones internas. • High Cohesion\+: Agrupa métodos coherentes y directamente relacionados con la gestión de su equipo y uso de ítems, manteniendo cohesión en sus responsabilidades.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_library_1_1_entrenador_a7769a1f8341e65556fd26b3cf048c9e1}{Entrenador}} (string nombre)
+\begin{DoxyCompactList}\small\item\em Inicializa un nuevo entrenador con el nombre especificado. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_entrenador_a398d953b3a377009204646207759bf57}{elegir\+Equipo}} (int numero)
+\begin{DoxyCompactList}\small\item\em Permite al entrenador elegir un Pokémon para agregar a su equipo. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_entrenador_a0a62f9370e31948def4394f188539dfe}\label{class_library_1_1_entrenador_a0a62f9370e31948def4394f188539dfe} 
+void {\bfseries Mostrarmi\+Pokedex} ()
+\begin{DoxyCompactList}\small\item\em Muestra todos los Pokémon que el entrenador tiene en su Equipo. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_entrenador_a70f492dd0332d916d858bca4225200e8}{cambiar\+Activo}} (int index\+Pokemon\+List)
+\begin{DoxyCompactList}\small\item\em Cambia el Pokémon activo del entrenador. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_entrenador_aa8593042a14135fff80021a51e4e2772}{elegir\+Ataque}} (string nombre, \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} oponente, \mbox{\hyperlink{class_library_1_1_gestor_efectos}{Gestor\+Efectos}} gestor\+Efectos)
+\begin{DoxyCompactList}\small\item\em Elige un ataque para que el Pokémon activo ataque a un oponente. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_library_1_1_entrenador_a0655fdcd00ddc02300f35b4b3617d704}{Usar\+Item}} (string nombre\+Item, \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} pokemon, \mbox{\hyperlink{class_library_1_1_gestor_efectos}{Gestor\+Efectos}} gestor\+Efectos)
+\begin{DoxyCompactList}\small\item\em Utiliza un ítem en un Pokémon durante la batalla. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_entrenador_a15ec1349b9fcff2692a29b2eb14d6e78}\label{class_library_1_1_entrenador_a15ec1349b9fcff2692a29b2eb14d6e78} 
+void {\bfseries Cambio\+Pokemon\+Muerto} ()
+\begin{DoxyCompactList}\small\item\em Cambia al siguiente Pokémon disponible en el equipo si el Pokémon activo está muerto. \end{DoxyCompactList}\item 
+\Hypertarget{class_library_1_1_entrenador_a5bf1e06118366cb7dc855ac316ce2436}\label{class_library_1_1_entrenador_a5bf1e06118366cb7dc855ac316ce2436} 
+void {\bfseries Seteode\+Items} ()
+\begin{DoxyCompactList}\small\item\em Inicializa los contadores de ítems disponibles para el entrenador. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_library_1_1_entrenador_a1e87b8db99045a4068cac118cb42fb85}\label{class_library_1_1_entrenador_a1e87b8db99045a4068cac118cb42fb85} 
+string {\bfseries Nombre}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\Hypertarget{class_library_1_1_entrenador_ac49a4448d822e144fa726656f9213e4e}\label{class_library_1_1_entrenador_ac49a4448d822e144fa726656f9213e4e} 
+List$<$ \mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} $>$ {\bfseries Equipo}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\Hypertarget{class_library_1_1_entrenador_a1be5f076d7ae1afc71745aacd3cc9bb6}\label{class_library_1_1_entrenador_a1be5f076d7ae1afc71745aacd3cc9bb6} 
+\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}} {\bfseries Activo}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\Hypertarget{class_library_1_1_entrenador_a3eddfad604613fe943ce08d38499c8f2}\label{class_library_1_1_entrenador_a3eddfad604613fe943ce08d38499c8f2} 
+int {\bfseries Contador\+Super\+Pocion}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\Hypertarget{class_library_1_1_entrenador_af8dc3e9f1745b5240bbe84de646572ca}\label{class_library_1_1_entrenador_af8dc3e9f1745b5240bbe84de646572ca} 
+int {\bfseries Contador\+Revivir}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\Hypertarget{class_library_1_1_entrenador_a18c5dd0834d11d2eed859f77cafaa271}\label{class_library_1_1_entrenador_a18c5dd0834d11d2eed859f77cafaa271} 
+int {\bfseries Contador\+Cura\+Total}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Esta clase representa un entrenador que participa en batallas de Pokémon. El entrenador tiene un equipo de Pokémon, uno activo y puede usar ítems durante la batalla. La clase \doxylink{class_library_1_1_entrenador}{Entrenador} aplica los siguientes principios\+: • SRP\+: Centraliza la gestión del equipo de Pokémon y el uso de ítems, manteniendo responsabilidades claras y específicas. • Expert\+: \doxylink{class_library_1_1_entrenador}{Entrenador} conoce y gestiona toda la información necesaria sobre su equipo y los ítems, consolidando las responsabilidades de su rol. • Low Coupling\+: Limita el acoplamiento al delegar los efectos especiales en otras clases, manteniéndose independiente de sus implementaciones internas. • High Cohesion\+: Agrupa métodos coherentes y directamente relacionados con la gestión de su equipo y uso de ítems, manteniendo cohesión en sus responsabilidades. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_library_1_1_entrenador_a7769a1f8341e65556fd26b3cf048c9e1}\index{Library.Entrenador@{Library.Entrenador}!Entrenador@{Entrenador}}
+\index{Entrenador@{Entrenador}!Library.Entrenador@{Library.Entrenador}}
+\doxysubsubsection{\texorpdfstring{Entrenador()}{Entrenador()}}
+{\footnotesize\ttfamily \label{class_library_1_1_entrenador_a7769a1f8341e65556fd26b3cf048c9e1} 
+Library.\+Entrenador.\+Entrenador (\begin{DoxyParamCaption}\item[{string}]{nombre}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Inicializa un nuevo entrenador con el nombre especificado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre} & El nombre del entrenador.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_library_1_1_entrenador_a70f492dd0332d916d858bca4225200e8}\index{Library.Entrenador@{Library.Entrenador}!cambiarActivo@{cambiarActivo}}
+\index{cambiarActivo@{cambiarActivo}!Library.Entrenador@{Library.Entrenador}}
+\doxysubsubsection{\texorpdfstring{cambiarActivo()}{cambiarActivo()}}
+{\footnotesize\ttfamily \label{class_library_1_1_entrenador_a70f492dd0332d916d858bca4225200e8} 
+string Library.\+Entrenador.\+cambiar\+Activo (\begin{DoxyParamCaption}\item[{int}]{index\+Pokemon\+List}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Cambia el Pokémon activo del entrenador. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index\+Pokemon\+List} & El índice del Pokémon en el equipo que se quiere hacer activo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El nombre del Pokémon activo, o un mensaje de error si el índice es inválido.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_entrenador_aa8593042a14135fff80021a51e4e2772}\index{Library.Entrenador@{Library.Entrenador}!elegirAtaque@{elegirAtaque}}
+\index{elegirAtaque@{elegirAtaque}!Library.Entrenador@{Library.Entrenador}}
+\doxysubsubsection{\texorpdfstring{elegirAtaque()}{elegirAtaque()}}
+{\footnotesize\ttfamily \label{class_library_1_1_entrenador_aa8593042a14135fff80021a51e4e2772} 
+string Library.\+Entrenador.\+elegir\+Ataque (\begin{DoxyParamCaption}\item[{string}]{nombre}{, }\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{oponente}{, }\item[{\mbox{\hyperlink{class_library_1_1_gestor_efectos}{Gestor\+Efectos}}}]{gestor\+Efectos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Elige un ataque para que el Pokémon activo ataque a un oponente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre} & El nombre del ataque a utilizar.\\
+\hline
+{\em oponente} & El Pokémon oponente que recibirá el ataque.\\
+\hline
+{\em gestor\+Efectos} & El gestor de efectos que maneja los efectos adicionales del ataque.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El resultado de la acción de atacar.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_entrenador_a398d953b3a377009204646207759bf57}\index{Library.Entrenador@{Library.Entrenador}!elegirEquipo@{elegirEquipo}}
+\index{elegirEquipo@{elegirEquipo}!Library.Entrenador@{Library.Entrenador}}
+\doxysubsubsection{\texorpdfstring{elegirEquipo()}{elegirEquipo()}}
+{\footnotesize\ttfamily \label{class_library_1_1_entrenador_a398d953b3a377009204646207759bf57} 
+string Library.\+Entrenador.\+elegir\+Equipo (\begin{DoxyParamCaption}\item[{int}]{numero}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Permite al entrenador elegir un Pokémon para agregar a su equipo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & El número del Pokémon que se desea agregar al equipo.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un mensaje indicando si el Pokémon fue agregado con éxito o si el equipo está lleno.
+\end{DoxyReturn}
+\Hypertarget{class_library_1_1_entrenador_a0655fdcd00ddc02300f35b4b3617d704}\index{Library.Entrenador@{Library.Entrenador}!UsarItem@{UsarItem}}
+\index{UsarItem@{UsarItem}!Library.Entrenador@{Library.Entrenador}}
+\doxysubsubsection{\texorpdfstring{UsarItem()}{UsarItem()}}
+{\footnotesize\ttfamily \label{class_library_1_1_entrenador_a0655fdcd00ddc02300f35b4b3617d704} 
+string Library.\+Entrenador.\+Usar\+Item (\begin{DoxyParamCaption}\item[{string}]{nombre\+Item}{, }\item[{\mbox{\hyperlink{class_library_1_1_pokemon}{Pokemon}}}]{pokemon}{, }\item[{\mbox{\hyperlink{class_library_1_1_gestor_efectos}{Gestor\+Efectos}}}]{gestor\+Efectos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Utiliza un ítem en un Pokémon durante la batalla. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre\+Item} & El nombre del ítem a usar (Superpocion, Revivir, Cura\+Total).\\
+\hline
+{\em pokemon} & El Pokémon sobre el que se usará el ítem.\\
+\hline
+{\em gestor\+Efectos} & El gestor de efectos que maneja los efectos del ítem.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un mensaje indicando el resultado de usar el ítem.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Library/Entrenador.\+cs\end{DoxyCompactItemize}

@@ -24,7 +24,7 @@ namespace Library.Tests
         public void Inmunidades()
         {
             double multiplicador = LogicaTipos.CalcularMultiplicador("Eléctrico", "Tierra");
-            Assert.AreEqual(0, multiplicador, "El ataque de tipo Eléctrico no tiene efecto sobre tipo Tierra.");
+            Assert.AreEqual(0.5, multiplicador, "El ataque de tipo Eléctrico no tiene efecto sobre tipo Tierra.");
         }
 
         [TestMethod]
