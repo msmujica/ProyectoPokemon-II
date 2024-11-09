@@ -60,15 +60,20 @@ public static class LogicaTipos
     /// <returns>El multiplicador de daño (1: neutral, 2: super efectivo, 0.5: poco efectivo, 0: sin efecto).</returns>
     public static double CalcularMultiplicador(string tipoAtaque, string tipoDefensor)
     {
-        if (Inmunidades.ContainsKey(tipoDefensor) && Inmunidades[tipoDefensor].Contains(tipoAtaque))
+        if (Inmunidades.ContainsKey(tipoDefensor) && Inmunidades[tipoDefensor].Contains(tipoAtaque)){
             return 0;
-            
+        }
+
         if (Debilidades.ContainsKey(tipoDefensor) && Debilidades[tipoDefensor].Contains(tipoAtaque))
+        {
             return 2;
-            
+        }
+
         if (Resistencias.ContainsKey(tipoDefensor) && Resistencias[tipoDefensor].Contains(tipoAtaque))
+        {
             return 0.5;
-            
+        }
+
         return 1;
     }
 }

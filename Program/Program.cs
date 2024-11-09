@@ -17,30 +17,24 @@ class Program
         
         Console.WriteLine(facade.StartBattle(player1, player2));
         
-        Console.WriteLine(facade.ChooseTeam(player1, 1));
+        Console.WriteLine(facade.ChooseTeam(player1, 0));
         Console.WriteLine(facade.ChooseTeam(player1, 2));
-        Console.WriteLine(facade.ChooseTeam(player1, 3));
+        Console.WriteLine(facade.ChooseTeam(player1, 1));
         Console.WriteLine(facade.ChooseTeam(player1, 4));
         Console.WriteLine(facade.ChooseTeam(player1, 5));
         Console.WriteLine(facade.ChooseTeam(player1, 6));
         
-        Console.WriteLine(facade.ChooseTeam(player2, 1));
+        Console.WriteLine(facade.ChooseTeam(player2, 5));
         Console.WriteLine(facade.ChooseTeam(player2, 2));
-        Console.WriteLine(facade.ChooseTeam(player2, 3));
+        Console.WriteLine(facade.ChooseTeam(player2, 1));
         Console.WriteLine(facade.ChooseTeam(player2, 4));
         Console.WriteLine(facade.ChooseTeam(player2, 5));
         Console.WriteLine(facade.ChooseTeam(player2, 6));
         
-        Console.WriteLine(facade.AttackPokemon(player1, "Picadura"));
-        Console.WriteLine(facade.AttackPokemon(player2, "Pistola Agua"));
+        Console.WriteLine(facade.AttackPokemon(player1, "Pistola Agua"));
         
         Console.WriteLine(facade.ShowEnemiesPokemon(player2));
-        
-        Console.WriteLine(facade.UseItem(player1, 0, "Revivir"));
-        
-       Console.WriteLine(facade.GetPokemonAtacks(player2));
-       
-       Console.WriteLine(facade.ChangePokemon(player1, 3));
+
        
        
     }
