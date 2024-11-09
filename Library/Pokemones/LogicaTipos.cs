@@ -5,6 +5,12 @@ namespace Library;
 /// <summary>
 /// Esta clase maneja la lógica de tipos en el sistema de batalla, determinando las debilidades, resistencias e inmunidades 
 /// de los tipos de Pokémon frente a otros tipos de ataques.
+/// La clase Pokedex sigue estos principios:
+/// •	Expert: Centraliza la creación de Pokémon y la gestión de sus nombres y tipos, lo que la convierte en la experta en esta información.
+/// •	Low Coupling: La clase tiene bajo acoplamiento, ya que solo gestiona datos básicos de los Pokémon sin depender de la lógica de batalla.
+/// •	High Cohesion: La cohesión es alta, ya que todos sus métodos están relacionados exclusivamente con el manejo de la información de la Pokedex.
+/// •	Creator: Como creadora de objetos Pokemon, facilita la extensibilidad al incorporar nuevos Pokémon fácilmente.
+
 /// </summary>
 public static class LogicaTipos
 {

@@ -4,6 +4,11 @@ namespace Library.Items
 {
     /// <summary>
     /// Esta clase gestiona el uso de objetos de curación y revivir en los Pokémon durante la batalla.
+    /// La clase GestorDeItems aplica los siguientes principios:
+    /// •	SRP: GestorDeItems tiene una única responsabilidad, que es gestionar el uso de ítems en la batalla.
+    /// •	OCP: Permite agregar nuevos tipos de ítems sin modificar el código existente, facilitando la extensión.
+    /// •	Principio de Expert: GestorDeItems conoce y gestiona la lógica de los ítems, por lo que es el experto en esta funcionalidad.
+    /// •	Acoplamiento bajo: Usa GestorEfectos para manejar los efectos negativos, reduciendo la dependencia entre clases.
     /// </summary>
     public class GestorDeItems
     {

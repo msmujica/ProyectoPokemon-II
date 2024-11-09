@@ -8,6 +8,12 @@ namespace Library;
 /// <summary>
 /// Esta clase representa un entrenador que participa en batallas de Pokémon.
 /// El entrenador tiene un equipo de Pokémon, uno activo y puede usar ítems durante la batalla.
+/// La clase Entrenador aplica los siguientes principios:
+/// •	SRP: Centraliza la gestión del equipo de Pokémon y el uso de ítems, manteniendo responsabilidades claras y específicas.
+/// •	Expert: Entrenador conoce y gestiona toda la información necesaria sobre su equipo y los ítems, consolidando las responsabilidades de su rol.
+/// •	Low Coupling: Limita el acoplamiento al delegar los efectos especiales en otras clases, manteniéndose independiente de sus implementaciones internas.
+/// •	High Cohesion: Agrupa métodos coherentes y directamente relacionados con la gestión de su equipo y uso de ítems, manteniendo cohesión en sus responsabilidades.
+
 /// </summary>
 
 public class Entrenador

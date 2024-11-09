@@ -8,6 +8,12 @@ namespace Library
     /// Clase estática que maneja la lógica relacionada con los ataques de Pokémon, 
     /// incluyendo el almacenamiento de ataques predefinidos, su daño, tipo y la 
     /// lógica para calcular el daño de un ataque.
+    /// La clase Ataque aplica varios principios de diseño:
+    /// •	SRP: La clase se encarga exclusivamente de la lógica relacionada con los ataques de Pokémon, como calcular el daño, determinar la precisión y la probabilidad de efectos especiales. No tiene responsabilidades adicionales.
+    /// •	OCP: Está diseñada para ser extendida sin necesidad de modificar el código existente. Por ejemplo, se pueden agregar nuevos ataques o efectos especiales sin alterar el código central.
+    /// •	Principio de Expert: La clase es experta en la gestión de ataques y sus efectos. Conoce la lógica de cómo calcular el daño, aplicar efectos especiales, y gestionar la relación entre tipos de ataques y Pokémon.
+    /// •	Acoplamiento Bajo: Aunque la clase interactúa con otras clases, como GestorEfectos y Pokemon, se encarga de delegar funcionalidades específicas, como la aplicación de efectos especiales, sin acoplarse demasiado a ellas, lo que permite cambios en otras clases sin afectar a Ataque.
+
     /// </summary>
     public static class Ataque
     {

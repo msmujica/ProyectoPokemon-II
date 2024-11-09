@@ -6,6 +6,11 @@ namespace Library;
 /// <summary>
 /// Esta clase gestiona la Pokedex, permitiendo la creación de Pokémon a partir de un índice,
 /// mostrar la lista de Pokémon en la Pokedex, y obtener detalles sobre un Pokémon en particular.
+/// La clase Pokedex sigue los siguientes principios:
+/// •	Expert: Pokedex centraliza la creación de Pokémon y el manejo de sus nombres y tipos, actuando como el experto en esta información.
+/// •	Low Coupling: La clase mantiene un acoplamiento bajo al estar limitada a gestionar solo los datos básicos de los Pokémon, sin involucrarse en detalles de lógica de batalla.
+/// •	High Cohesion: La clase tiene cohesión alta, ya que sus métodos están directamente relacionados con el manejo de los Pokémon en la Pokedex.
+/// •	Creator: Pokedex es responsable de crear objetos de tipo Pokemon, lo que facilita la extensibilidad al permitir la incorporación de nuevos Pokémon.
 /// </summary>
 public static class Pokedex
 {

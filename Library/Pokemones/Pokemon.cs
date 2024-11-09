@@ -7,6 +7,10 @@ namespace Library;
 /// <summary>
 /// Clase que representa un Pokémon con nombre, puntos de vida, lista de ataques, tipo y estado de derrota.
 /// Permite recibir daño, realizar ataques y gestionar su estado de derrota.
+/// La clase Pokemon aplica los siguientes principios:
+/// •	Expert: Pokemon gestiona su propia vida, ataques y estado, siguiendo el principio de asignar responsabilidades al experto en la información.
+/// •	Acoplamiento bajo: Utiliza GestorEfectos para manejar efectos adicionales en los ataques, manteniendo bajo el acoplamiento con otras clases.
+/// •	OCP (Open-Closed Principle): Permite la extensión con nuevas interfaces y funcionalidades, sin modificar el código existente.
 /// </summary>
 
 public class Pokemon
