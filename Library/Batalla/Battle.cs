@@ -129,7 +129,6 @@ public class Battle
     /// <returns>Mensaje que describe el resultado de realizar el ataque.</returns>
     public string IntermediarioAtacar(string opcionAtaque)
     {
-        validacionPokemon();
         
         if (ValidacionWin())
         {
@@ -196,9 +195,10 @@ public class Battle
             }
 
             // Cambiar el Pokémon activo
+            string valor = this.TurnoActual.cambiarActivo(opcionPokemon);
             this.gestorEfectos.ProcesarEfectosDaño();
             this.CambiarTurno();
-            return this.TurnoActual.cambiarActivo(opcionPokemon);
+            return valor;
         }
         catch (FormatException)
         {

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace Library
 {
@@ -133,9 +134,9 @@ namespace Library
                 {
                     dañoTotal = (int)(dañoTotal * 1.2); // Aumenta el daño en un 20% si es crítico
                 }
-
+                
                 // Calcula el multiplicador de daño según los tipos
-                double multiplicador = LogicaTipos.CalcularMultiplicador(nombreAtaque, objetivo.Tipos);
+                double multiplicador = LogicaTipos.CalcularMultiplicador(ataque.Tipo, objetivo.Tipos);
                 dañoTotal = (int)(dañoTotal * multiplicador);
 
                 if (gestorEfectos.PokemonConEfecto(objetivo))
