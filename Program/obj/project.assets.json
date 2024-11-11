@@ -27,19 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Estudiante UCU\\.nuget\\packages\\": {}
+    "C:\\Users\\matia\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Estudiante UCU\\Desktop\\ProyectoPokemon-II\\Program\\Program.csproj",
+      "projectUniqueName": "C:\\repos\\P2_codes\\Pokemon2\\ProyectoPokemon-II\\Program\\Program.csproj",
       "projectName": "Program",
-      "projectPath": "C:\\Users\\Estudiante UCU\\Desktop\\ProyectoPokemon-II\\Program\\Program.csproj",
-      "packagesPath": "C:\\Users\\Estudiante UCU\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Estudiante UCU\\Desktop\\ProyectoPokemon-II\\Program\\obj\\",
+      "projectPath": "C:\\repos\\P2_codes\\Pokemon2\\ProyectoPokemon-II\\Program\\Program.csproj",
+      "packagesPath": "C:\\Users\\matia\\.nuget\\packages\\",
+      "outputPath": "C:\\repos\\P2_codes\\Pokemon2\\ProyectoPokemon-II\\Program\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Estudiante UCU\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\matia\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -51,8 +51,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Estudiante UCU\\Desktop\\ProyectoPokemon-II\\Library\\Library.csproj": {
-              "projectPath": "C:\\Users\\Estudiante UCU\\Desktop\\ProyectoPokemon-II\\Library\\Library.csproj"
+            "C:\\repos\\P2_codes\\Pokemon2\\ProyectoPokemon-II\\Library\\Library.csproj": {
+              "projectPath": "C:\\repos\\P2_codes\\Pokemon2\\ProyectoPokemon-II\\Library\\Library.csproj"
             }
           }
         }
